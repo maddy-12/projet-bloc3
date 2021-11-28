@@ -2,6 +2,7 @@
 
 class generalController 
 {
+    //constructeur
     function __construct(){
 
  
