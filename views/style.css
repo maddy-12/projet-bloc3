@@ -1,0 +1,7 @@
+.bg-footer{
+    background-color: #014204;
+}
+
+hr:not([size]) {
+    margin: 5px 10%;
+}
