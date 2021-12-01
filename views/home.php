@@ -10,3 +10,7 @@ include ('views/header.php');
     <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
 </div>
+
+<?php
+include ('views/footer.php');
+?>

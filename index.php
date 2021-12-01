@@ -1,7 +1,7 @@
 <?php
 include ('controllers/generalController.php');
 include ('views/header.php');
-include ('views/footer.php');
+
 include ('views/style.css');
 
 $base = new generalController();
@@ -18,12 +18,15 @@ $base = new generalController();
 
     <!-- CSS -->
     <link rel="stylesheet" href="views/style.css">
-
+    
     <title>Hello, world!</title>
   </head>
   <body>
     <h1>Hello, world!</h1>
 
+    <?php
+      include ('views/footer.php');
+    ?>
     <!-- Optional JavaScript; choose one of the two! -->
 
     <!-- Option 1: Bootstrap Bundle with Popper -->
