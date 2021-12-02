@@ -2,8 +2,6 @@
 include ('controllers/generalController.php');
 include ('views/header.php');
 
-include ('views/style.css');
-
 $base = new generalController();
 ?>
 <!doctype html>

@@ -2,7 +2,7 @@
 include ('views/header.php');
 ?>
 
-<div class="container text-center">
+<main class="container text-center">
 <h2>Nous Contacter</h2>
 
 <form class="row g-3 needs-validation" novalidate>
@@ -23,6 +23,7 @@ include ('views/header.php');
   </div>
 </div>
 </form>
+</main>
 <?php
 include ('views/footer.php');
 ?>
