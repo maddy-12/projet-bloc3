@@ -1,5 +1,5 @@
 
-  <div class="container-fluid">
+  <div class="container-fluid bg-footer">
     <footer class="py-3 my-4">
       <div class="row text-center">
         <div class="col-4"><p>LOGO</p></div>
