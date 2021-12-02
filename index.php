@@ -17,12 +17,13 @@ $base = new generalController();
     <!-- CSS -->
     <link rel="stylesheet" href="views/style.css">
     
-    <title>Hello, world!</title>
+    <title>BIOCOOK</title>
   </head>
   <body>
-    <h1>Hello, world!</h1>
+    
 
     <?php
+      include ('views/home.php');
       include ('views/footer.php');
     ?>
     <!-- Optional JavaScript; choose one of the two! -->
