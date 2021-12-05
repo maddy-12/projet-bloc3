@@ -30,7 +30,7 @@ body, html {
 .card-body{
     text-align: center;
 }
-.btn-card{
+.btn-card, .btn-form{
     border: none;
     border-radius: none !important;
     color: white;
@@ -42,7 +42,7 @@ body, html {
 }
 
 /* Green elements */
-.bg-footer, .btn-card{
+.bg-footer, .btn-card, .btn-form{
     background-color: #014204;
 }
 
