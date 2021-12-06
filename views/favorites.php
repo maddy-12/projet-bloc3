@@ -9,45 +9,90 @@ include ('views/header.php');
             </div>
         </div>
      <div class="row my-3">
-         <div class="col-6">
-            <img class="rounded float-end" src="" alt="">
-         </div>
-         <div class="col-6">
-             <h3 class="h4">Titre recette</h3>
-          <ul class="list-group">
-              <li class="list-inline-item my-2"><a class="btn btn-primary" href="#" role="button">Voir la recette</a></li>
-              <li class="list-inline-item my-2"><a class="btn btn-primary" href="#" role="button">Liste de courses</a></li>
-              <li class="list-inline-item my-2"><a class="btn btn-primary" href="#" role="button">Supprimer</a></li>
-          </ul>
+        <div class="col-6">       
+            <div class="col-6">
+                <img class="rounded float-end" src="" alt="">
+            </div>
+            <div class="col-6">
+                 <h3 class="h4">Titre recette</h3>
+                 <ul class="list-group">
+                    <li class="list-inline-item my-2"><a class="btn btn-primary" href="#" role="button">Voir la recette</a></li>
+                    <li class="list-inline-item my-2"><a class="btn btn-primary" href="#" role="button">Liste de courses</a></li>
+                 <li class="list-inline-item my-2"><a class="btn btn-primary" href="#" role="button">Supprimer</a></li>
+                </ul>
+            </div>
         </div>
-     </div>
+        <div class="col-6">       
+            <div class="col-6">
+                <img class="rounded float-end" src="" alt="">
+            </div>
+            <div class="col-6">
+                 <h3 class="h4">Titre recette</h3>
+                 <ul class="list-group">
+                    <li class="list-inline-item my-2"><a class="btn btn-primary" href="#" role="button">Voir la recette</a></li>
+                    <li class="list-inline-item my-2"><a class="btn btn-primary" href="#" role="button">Liste de courses</a></li>
+                 <li class="list-inline-item my-2"><a class="btn btn-primary" href="#" role="button">Supprimer</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
      <div class="row my-3">
-        <div class="col-6">
-            <img class="rounded float-end" src="" alt="">
+     <div class="col-6">       
+            <div class="col-6">
+                <img class="rounded float-end" src="" alt="">
+            </div>
+            <div class="col-6">
+                 <h3 class="h4">Titre recette</h3>
+                 <ul class="list-group">
+                    <li class="list-inline-item my-2"><a class="btn btn-primary" href="#" role="button">Voir la recette</a></li>
+                    <li class="list-inline-item my-2"><a class="btn btn-primary" href="#" role="button">Liste de courses</a></li>
+                 <li class="list-inline-item my-2"><a class="btn btn-primary" href="#" role="button">Supprimer</a></li>
+                </ul>
+            </div>
         </div>
-        <div class="col-6">
-            <h3 class="h4">Titre recette</h3>
-         <ul class="list-group">
-             <li class="list-inline-item my-2"><a class="btn btn-primary" href="#" role="button">Voir la recette</a></li>
-             <li class="list-inline-item my-2"><a class="btn btn-primary" href="#" role="button">Liste de courses</a></li>
-             <li class="list-inline-item my-2"><a class="btn btn-primary" href="#" role="button">Supprimer</a></li>
-         </ul>
-       </div>
+        <div class="col-6">       
+            <div class="col-6">
+                <img class="rounded float-end" src="" alt="">
+            </div>
+            <div class="col-6">
+                 <h3 class="h4">Titre recette</h3>
+                 <ul class="list-group">
+                    <li class="list-inline-item my-2"><a class="btn btn-primary" href="#" role="button">Voir la recette</a></li>
+                    <li class="list-inline-item my-2"><a class="btn btn-primary" href="#" role="button">Liste de courses</a></li>
+                 <li class="list-inline-item my-2"><a class="btn btn-primary" href="#" role="button">Supprimer</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
     <div class="row my-3">
-        <div class="col-6">
-            <img class="rounded float-end" src="" alt="">
+    <div class="col-6">       
+            <div class="col-6">
+                <img class="rounded float-end" src="" alt="">
+            </div>
+            <div class="col-6">
+                 <h3 class="h4">Titre recette</h3>
+                 <ul class="list-group">
+                    <li class="list-inline-item my-2"><a class="btn btn-primary" href="#" role="button">Voir la recette</a></li>
+                    <li class="list-inline-item my-2"><a class="btn btn-primary" href="#" role="button">Liste de courses</a></li>
+                 <li class="list-inline-item my-2"><a class="btn btn-primary" href="#" role="button">Supprimer</a></li>
+                </ul>
+            </div>
         </div>
-        <div class="col-6">
-            <h3 class="h4">Titre recette</h3>
-         <ul class="list-group">
-             <li class="list-inline-item my-2"><a class="btn btn-primary" href="#" role="button">Voir la recette</a></li>
-             <li class="list-inline-item my-2"><a class="btn btn-primary" href="#" role="button">Liste de courses</a></li>
-             <li class="list-inline-item my-2"><a class="btn btn-primary" href="#" role="button">Supprimer</a></li>
-         </ul>
-       </div>
+        <div class="col-6">       
+            <div class="col-6">
+                <img class="rounded float-end" src="" alt="">
+            </div>
+            <div class="col-6">
+                 <h3 class="h4">Titre recette</h3>
+                 <ul class="list-group">
+                    <li class="list-inline-item my-2"><a class="btn btn-primary" href="#" role="button">Voir la recette</a></li>
+                    <li class="list-inline-item my-2"><a class="btn btn-primary" href="#" role="button">Liste de courses</a></li>
+                 <li class="list-inline-item my-2"><a class="btn btn-primary" href="#" role="button">Supprimer</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
-    </main>
+</main>
 
 <?php 
 include ('views/footer.php');
