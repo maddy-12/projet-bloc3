@@ -13,6 +13,11 @@ body, html {
     font-size: 16px;
   }
 
+  .mg-top {
+    margin-top: 8rem;
+    margin-bottom: 3rem;
+  }
+
 /**************** HEADER  **********/
 #navbar-white {
     background-color: white !important;
@@ -27,9 +32,6 @@ body, html {
 }
 
 /* Cards */
-.card-body{
-    text-align: center;
-}
 .btn-card, .btn-form{
     border: none;
     border-radius: none !important;
@@ -47,5 +49,20 @@ body, html {
 }
 
 hr:not([size]) {
-    margin: 5px 10%;
+    height: 3px;
+    margin: 10px 10%;
+}
+
+.fab{
+    font-size: 25px;
+}
+
+hr:not([size]).hr-shoppingList{
+        height: 2px;
+        margin: 10px 0%;
+}
+
+.form-check-input:checked {
+    background-color: #FB5A5A;
+    border-color: #FB5A5A;
 }
