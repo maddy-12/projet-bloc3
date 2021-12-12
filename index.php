@@ -1,6 +1,8 @@
 <?php
 include ('controllers/generalController.php');
 include ('views/header.php');
+//connexion BDD
+require_once('database_connect.php');
 
 $base = new generalController();
 ?>
