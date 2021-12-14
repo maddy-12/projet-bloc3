@@ -2,10 +2,9 @@
 
 try {
     //connection to DB
-   $db = NEW PDO('mysql:host=localhost; dbname=biocook', 'root','');
-
+    $db = new PDO('mysql:host=localhost; dbname=biocook', 'root', '');
+    $db->exec('SET NAMES "UTF8"');
 } catch (PDOException $e) {
-    echo 'error' . $e -> getmessage();
+    echo 'error' . $e->getmessage();
+    die();
 }
-
-?>
