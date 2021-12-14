@@ -1,8 +1,7 @@
+<?php
+include('header.php');
+?>
 
-
-
-<!doctype html>
-<html lang="fr">
   <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -15,7 +14,7 @@
     <script src="https://kit.fontawesome.com/c8bdca93db.js" crossorigin="anonymous"></script>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="../assets/style.css">
     
     <title>BIOCOOK</title>
   </head>

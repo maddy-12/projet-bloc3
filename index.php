@@ -20,7 +20,7 @@ $base = new generalController();
     <script src="https://kit.fontawesome.com/c8bdca93db.js" crossorigin="anonymous"></script>
 
     <!-- CSS -->
-    <link rel="stylesheet" href="views/style.css">
+    <link rel="stylesheet" href="assets/style.css">
     
     <title>BIOCOOK</title>
   </head>

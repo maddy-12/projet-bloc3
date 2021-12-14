@@ -45,7 +45,7 @@ body, html {
 
 /* Green elements */
 .bg-footer, .btn-card, .btn-form{
-    background-color: #014204;
+    background-color: #014204 !important;
 }
 
 hr:not([size]) {
