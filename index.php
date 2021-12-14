@@ -11,7 +11,7 @@ $query = $db->prepare($sql);
 //On execute la requête
 $query->execute();
 //On stock la requête
-$result = $query->fetchAll();
+$result = $query->fetchAll(PDO::FETCH_ASSOC);
 
 $base = new generalController();
 ?>
