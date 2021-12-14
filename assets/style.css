@@ -25,29 +25,35 @@ body, html {
 }
 /**************** PAGE HOME **************/
 /* Nom du site + slogan */
-.name-slogan{
+.name-slogan, .h1-title{
     text-align: center;
     padding: 50px 0 50px 0;
     margin-top: 50px;
 }
 
 /* Cards */
-.btn-card, .btn-form{
-    border: none;
+.btn-card, .btn-form, .btn-login{
+    border: none !important;
     border-radius: none !important;
-    color: white;
+    color: white !important;
 }
 
-.btn-card:hover{
-    color: white;
-    background-color:  #B8E2A1;
+.btn-card:hover, .btn-form:hover{
+    color: white !important;
+    background-color:  #B8E2A1 !important;
 }
 
 /* Green elements */
 .bg-footer, .btn-card, .btn-form{
     background-color: #014204 !important;
 }
-
+.btn-form{
+     width: 300px;
+     border-radius: 0;
+}
+.text-center{
+    padding: 20px;
+}
 hr:not([size]) {
     height: 3px;
     margin: 10px 10%;
@@ -65,4 +71,15 @@ hr:not([size]).hr-shoppingList{
 .form-check-input:checked {
     background-color: #FB5A5A;
     border-color: #FB5A5A;
+}
+/* *********** Forms ********** */
+.container-form{
+    width: 40vw;
+}
+.input-form{
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-bottom: 1px solid #000;
+    border-radius: 0;
 }
