@@ -4,7 +4,7 @@ include('views/header.php');
 //connexion BDD
 require_once('database_connect.php');
 
-//$sql = 'SELECT * FROM `ingredient` ';
+$sql = 'SELECT * FROM `ingredient` ';
 //On prepare la requête
 $query = $db->prepare($sql);
 
