@@ -1,5 +1,6 @@
 <?php
 include('header.php');
+include('../api-rest/config/database_connect.php');
 ?>
 
 <head>
@@ -28,11 +29,17 @@ include('header.php');
     <div class="container container-form">
         <h1>Inscription</h1>
         <!-- email -->
-        <form action="" type="POST" class="login-form">
+        <form method="POST" type="POST" class="login-form" action="?action=register">
+            <!-- Message d'erreur -->
+            <?php
+            if (isset($errorMsg)) {
+                echo "<div class='alert alert-warning' role='alert'>$errorMsg</div>";
+            }
+            ?>
+            <!-- firstname -->
             <div class="mb-3">
-                <label for="email" class="form-label">Adresse email</label>
-                <input type="email" class="form-control input-form" id="email" name="email" aria-describedby="emailHelp">
-                <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                <label for="username" class="form-label">Pseudonyme</label>
+                <input name="username" type="text" class="form-control input-form" id="username">
             </div>
             <!-- mot de passe -->
             <div class="mb-3">
