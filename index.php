@@ -2,18 +2,18 @@
 include('controllers/generalController.php');
 include('views/header.php');
 //connexion BDD
-require_once('database_connect.php');
+require_once('api-rest/config/database_connect.php');
 
-$sql = 'SELECT * FROM `ingredient` ';
-//On prepare la requête
-$query = $db->prepare($sql);
+// $sql = 'SELECT * FROM `ingredient` ';
+// //On prepare la requête
+// $query = $db_name->prepare($sql);
 
-//On execute la requête
-$query->execute();
-//On stock la requête
-$result = $query->fetchAll(PDO::FETCH_ASSOC);
+// //On execute la requête
+// $query->execute();
+// //On stock la requête
+// $result = $query->fetchAll(PDO::FETCH_ASSOC);
 
-$base = new generalController();
+// $base = new generalController();
 ?>
 <!doctype html>
 <html lang="fr">
