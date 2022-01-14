@@ -24,7 +24,7 @@ include('header.php');
 <body>
     <div class="container">
         <section>
-            <h1>Title of recipe</h1>
+            <h1 class="h1-title">Title of recipe</h1>
             <div class="row my-3">
                 <div class="col-lg-5 col-md-12  shadow p-3 my-5 mb-5 bg-white rounded">
                     <a data-fancybox="gallery" href="images/search.png">  <img src="https://www.atelierdeschefs.com/media/recette-d13804-bibimbap.jpg" class="card-img-top" alt="..."></a>
