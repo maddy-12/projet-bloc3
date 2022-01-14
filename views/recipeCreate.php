@@ -24,7 +24,7 @@ include('header.php');
 <body>
     <div class="container">
         <section>
-            <h1>Title of recipe</h1>
+            <h1 class="h1-title">Title of recipe</h1>
             <form>
                 <div class="form-group row py-2">
                   <label for="staticEmail" class="col-sm-2 col-form-label">Titre de la recette</label>
