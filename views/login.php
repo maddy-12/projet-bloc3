@@ -24,7 +24,7 @@ include('header.php');
     <div class="h1-title">
       <h1>Se connecter</h1>
     </div>
-    <form>
+    <form method="post">
       <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">Adresse email</label>
         <input name="email" type="email" class="form-control input-form" id="exampleInputEmail1" aria-describedby="emailHelp">

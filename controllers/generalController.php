@@ -1,20 +1,22 @@
 <?php
+
 $action = $GET["action"] ?? "display";
 
 switch ($action) {
         //REGISTER
     case 'register':
         include "../models/user.php";
-
+        
         //Si user remplis correctement
         if (isset($_POST['username']) &&  isset($_POST['password']) && isset($_POST['confirm_password'])) {
             $errorMsg = NULL;
+        
             //si username existe
             if (!IsUsernameFree($_POST['username'])) {
                 $errorMsg = "Ce pseudonyme est déjà utilisé";
 
                 //If the retyped password is diffrent from the pwd filled previously
-            } else if ($_POST['password'] != $_POST['passwordRetype']) {
+            } else if ($_POST['password'] != $_POST['confirm_password']) {
 
                 //Show error message
                 $errorMsg = "Les mot de passes ne sont pas identiques ";

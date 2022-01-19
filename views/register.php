@@ -29,7 +29,7 @@ include('../api-rest/config/database_connect.php');
     <div class="container container-form">
         <h1>Inscription</h1>
         <!-- email -->
-        <form method="POST" type="POST" class="login-form" action="?action=register">
+        <form method="POST" class="login-form" action="?action=register">
             <!-- Message d'erreur -->
             <?php
             if (isset($errorMsg)) {
@@ -39,20 +39,20 @@ include('../api-rest/config/database_connect.php');
             <!-- firstname -->
             <div class="mb-3">
                 <label for="username" class="form-label">Pseudonyme</label>
-                <input name="username" type="text" class="form-control input-form" id="username">
+                <input name="username" type="text" class="form-control input-form" id="username" required="" >
             </div>
             <!-- mot de passe -->
             <div class="mb-3">
                 <label for="password" class="form-label">Mot de passe</label>
-                <input name="password" type="password" class="form-control  input-form" id="password">
+                <input name="password" type="password" class="form-control  input-form" id="password" required="" >
             </div>
             <!-- Confirmation de mot de passe -->
             <div class="mb-3">
                 <label for="confirm_password" class="form-label">Confirmez votre mot de passe</label>
-                <input name="confirm_password" type="password" class="form-control input-form" id="confirm_password">
+                <input name="confirm_password" type="password" class="form-control input-form" id="confirm_password" required="">
             </div>
             <div class="btn-container d-flex justify-content-center">
-
+       
                 <!-- Bouton -->
                 <button type="submit" class="btn btn-form btn-form">Se connecter</button>
             </div>
