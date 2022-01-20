@@ -32,7 +32,7 @@
           <a class="nav-link active" href="../index.php">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="recipeCreate.php">Créer une recette</a>
+          <a class="nav-link" href="views/recipeCreate.php">Créer une recette</a>
         </li>
         <li class="nav-item">
           <a class="nav-link" href="recipeDetail.php">Detail recette

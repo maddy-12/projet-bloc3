@@ -1,6 +1,8 @@
 <?php
 include('header.php');
-include('../api-rest/config/database_connect.php');
+
+include_once '../controllers/generalController.php';
+
 ?>
 
 <head>
@@ -26,33 +28,36 @@ include('../api-rest/config/database_connect.php');
 
 <body>
 
-    <div class="container container-form">
+    <div class="container container-form mg-top">
         <h1>Inscription</h1>
         <!-- email -->
-        <form method="POST" class="login-form" action="?action=register">
+        <form class="login-form"  method="POST" action="?action=register">
             <!-- Message d'erreur -->
             <?php
-            if (isset($errorMsg)) {
-                echo "<div class='alert alert-warning' role='alert'>$errorMsg</div>";
+           if (isset($errorMsg)) { 
+             
+            echo "<div class='alert alert-warning' role='alert'>$errorMsg</div>";
+       
             }
             ?>
             <!-- firstname -->
             <div class="mb-3">
                 <label for="username" class="form-label">Pseudonyme</label>
-                <input name="username" type="text" class="form-control input-form" id="username" required="" >
+                <input name="username" type="text" class="form-control input-form" required="" >
             </div>
             <!-- mot de passe -->
             <div class="mb-3">
                 <label for="password" class="form-label">Mot de passe</label>
-                <input name="password" type="password" class="form-control  input-form" id="password" required="" >
+                <input name="password" type="password" class="form-control  input-form" required="" >
             </div>
             <!-- Confirmation de mot de passe -->
             <div class="mb-3">
                 <label for="confirm_password" class="form-label">Confirmez votre mot de passe</label>
-                <input name="confirm_password" type="password" class="form-control input-form" id="confirm_password" required="">
+                <input name="confirm_password" type="password" class="form-control input-form
+                " required="">
             </div>
             <div class="btn-container d-flex justify-content-center">
-       
+    
                 <!-- Bouton -->
                 <button type="submit" class="btn btn-form btn-form">Se connecter</button>
             </div>

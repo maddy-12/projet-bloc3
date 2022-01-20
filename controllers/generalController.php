@@ -1,16 +1,25 @@
 <?php
 
-$action = $GET["action"] ?? "display";
+$action = "display";
+
+if (isset($_GET["action"])) {
+  $action = $_GET["action"];
+}
+
+
 
 switch ($action) {
         //REGISTER
+      
+    
     case 'register':
         include "../models/user.php";
-        
+     
+       
         //Si user remplis correctement
         if (isset($_POST['username']) &&  isset($_POST['password']) && isset($_POST['confirm_password'])) {
             $errorMsg = NULL;
-        
+         
             //si username existe
             if (!IsUsernameFree($_POST['username'])) {
                 $errorMsg = "Ce pseudonyme est déjà utilisé";
@@ -36,13 +45,18 @@ switch ($action) {
 
             if ($errorMsg) {
                 include "../views/register.php";
+            
             } else {
                 $userId = CreateNewUser($_POST['username'], $_POST['password']);
                 $_SESSION['userId'] = $userId;
+
                 header('Location: ?action=display');
+               
+              
             }
         } else {
-            include "../views/register.php";
+             include "../views/register.php";
+          
         }
-        break;
+     break;
 }

@@ -1,5 +1,5 @@
 <?php
-include_once "../api-rest/config/database_connect.php";
+include ("../api-rest/config/database_connect.php");
 
 function CreateNewUser($username, $password)
 {
