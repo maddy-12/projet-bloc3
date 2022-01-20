@@ -1,11 +1,6 @@
 <?php
 
-$action = "display";
-
-if (isset($_GET["action"])) {
-  $action = $_GET["action"];
-}
-
+$action = $_GET["action"] ?? "display";
 
 
 switch ($action) {
