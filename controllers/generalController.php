@@ -6,10 +6,8 @@ $action = $_GET["action"] ?? "display";
 switch ($action) {
         //REGISTER
       
-    
     case 'register':
         include "../models/user.php";
-     
        
         //Si user remplis correctement
         if (isset($_POST['username']) &&  isset($_POST['password']) && isset($_POST['confirm_password'])) {
@@ -54,4 +52,23 @@ switch ($action) {
           
         }
      break;
+
+     case 'displayIngredientsFromRecipe':
+        
+          include "../models/recipe.php";
+            $recipes =  GetAllRecipes();
+          
+      
+          include "../models/ingredient.php";
+          $ingredients = array();
+
+          foreach ($recipes as $oneRecipe) {
+            $ingredients[$oneRecipe['id']] = GetAllIngredientsFromRecipe($oneRecipe['id']);
+          };
+
+    
+          include "../views/shoppingList.php";
+          break;
+
+    
 }
