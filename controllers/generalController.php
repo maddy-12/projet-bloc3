@@ -67,7 +67,6 @@ switch ($action) {
           };
 
     
-          include "../views/shoppingList.php";
           break;
 
     

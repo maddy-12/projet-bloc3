@@ -34,7 +34,8 @@ include_once '../controllers/generalController.php';
                     <h3 class="text-right">Description</h3>
                     <p class="text-justify">Lorem ipsum dolor sit amet consectetur adipisicing elit. Aperiam facilis culpa ut, voluptate blanditiis dolor tenetur necessitatibus soluta, fuga voluptatem exercitationem nobis repellat consequuntur optio magni nam recusandae? Placeat, asperiores. Lorem ipsum dolor sit amet consectetur adipisicing elit. Est doloremque alias, suscipit qui officia similique porro, saepe dolor neque a harum? Itaque inventore nam animi saepe voluptatibus ad ullam vitae. Lorem ipsum dolor sit amet consectetur adipisicing elit. Eius iusto eveniet saepe suscipit obcaecati laudantium, vero repudiandae! Animi, itaque voluptates eos reiciendis commodi exercitationem libero omnis! Laboriosam quae a molestias? Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus vero aliquid magni. Id cumque asperiores animi excepturi? Eius optio odit natus debitis eveniet nisi aspernatur, aliquam repudiandae quaerat commodi quos.
                     </p>
-                    <a href="?action=displayIngredientsFromRecipe" class="btn btn-card ">Voir la liste de course </a>
+        
+                    <a href="shoppingList.php?action=displayIngredientsFromRecipe"  class="btn btn-card ">Voir la liste de course </a>
                 </div>
             </div>
         </section>
