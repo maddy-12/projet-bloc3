@@ -1,6 +1,7 @@
 <?php
 include('header.php');
 include('../api-rest/config/database_connect.php');
+include('../controllers/generalController.php')
 ?>
 
 <head>
@@ -27,7 +28,7 @@ include('../api-rest/config/database_connect.php');
 <body>
 
     <div class="container container-form">
-        <h1>Inscription</h1>
+        <h1 class="mt-5">Inscription</h1>
         <!-- email -->
         <form method="POST" type="POST" class="login-form" action="?action=register">
             <!-- Message d'erreur -->
