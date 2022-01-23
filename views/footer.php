@@ -19,7 +19,7 @@
   <div class="container-fluid bg-footer">
     <footer class="py-3 my-4">
       <div class="row my-3 text-center align-items-center">
-        <div class="col-4 text-light"><img src="../assets/img/logoWithBackground.png" alt="Logo BIOCOOK" class="rounded"></div>
+        <div class="col-4 text-light"><img src="assets/img/logoWithBackground.png" alt="Logo BIOCOOK" class="rounded"></div>
         <div class="col-4 text-light d-flex justify-content-center">
         
             <p class="me-2" >Nous suivre :</p>

@@ -41,6 +41,7 @@ require_once('api-rest/config/database_connect.php');
   <?php
   include('views/home.php');
   include('views/footer.php');
+
   ?>
   <!-- Optional JavaScript; choose one of the two! -->
 
