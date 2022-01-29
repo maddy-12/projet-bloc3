@@ -32,35 +32,42 @@
         <li class="nav-item">
           <a class="nav-link active" href="../index.php">Home</a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="views/recipeCreate.php">Créer une recette</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="recipeDetail.php">Detail recette
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="recipeCreatedUser.php">Recettes créée</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="shoppingList.php">Shopping list</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="favorites.php">Favoris</a>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Compte
-          </a>
-          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <li><a class="dropdown-item" href="views/login.php">Se connecter</a></li>
-            <li><a class="dropdown-item" href="views/register.php"> S'inscrire</a></li>
-            <li>
-              <hr class="dropdown-divider">
-            </li>
+        <!-- Si connecté on affiche -->
+        <?php
+        if (isset($_SESSION['userId'])) {
+        ?>
+          <li class="nav-item">
+            <a class="nav-link" href="recipeCreate.php">Créer une recette</a>
+          </li>
 
-          </ul>
-        </li>
+          <li class="nav-item">
+            <a class="nav-link" href="recipeCreatedUser.php">Recettes créée</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="shoppingList.php">Shopping list</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="favorites.php">Favoris</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="?action=logout" role="button">Logout</a>
+          </li>
+        <?php
+          //Si non connecté 
+        } else { ?>
+          <li class="nav-item">
+            <a class="nav-link" href="/login">Se connecter</a>
+          </li>
+          <li>
+            <a class="nav-link" href="/register"> S'inscrire</a>
+          </li>
+          </li>
+        <?php
+        }
+        ?>
+
+
+
       </ul>
       <form class="d-flex">
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">

@@ -24,11 +24,17 @@ include('header.php');
     <div class="h1-title">
       <h1>Se connecter</h1>
     </div>
-    <form method="post">
+    <form class="form-signin" method="POST" action="?action=login">
+      <!-- Message d'erreur -->
+      <?php
+      if (isset($errorMsg)) {
+
+        echo "<div class='alert alert-warning' role='alert'>$errorMsg</div>";
+      }
+      ?>
       <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">Adresse email</label>
-        <input name="email" type="email" class="form-control input-form" id="exampleInputEmail1" aria-describedby="emailHelp">
-        <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        <label for="identifiant" class="form-label">Identifiant</label>
+        <input name="text" type="text" class="form-control input-form" id="identifiant">
       </div>
       <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Mot de passe</label>

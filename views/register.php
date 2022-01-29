@@ -1,8 +1,7 @@
 <?php
 include('header.php');
 
-include('../api-rest/config/database_connect.php');
-include('../controllers/generalController.php');
+include_once('../controllers/generalController.php');
 ?>
 
 <head>
