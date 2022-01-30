@@ -44,9 +44,10 @@ switch ($action) {
                 include "views/register.php";
             } else {
                 $userId = CreateNewUser($_POST['username'], $_POST['password']);
+                session_start();
                 $_SESSION['userId'] = $userId;
 
-                // header('Location: ?action=display');
+                header('Location: ?action=home');
             }
         } else {
             include "views/register.php";
@@ -60,19 +61,26 @@ switch ($action) {
     break;
 
     case 'login' :   
+
         include "models/user.php";
-        if (isset($_POST['username']) &&  isset($_POST['password'])) {
-            $userId = GetUserIdFromUserAndPassword($_POST['username'], $_POST['password']);
-            if ($userId > 0) {
+        session_start();
+        if (isset($_POST['username']) && isset($_POST['password'])) {
+          $userId = GetUserIdFromUserAndPassword($_POST['username'], $_POST['password']);
+          if ($userId > 0) {
                 $_SESSION['userId'] = $userId;
-                //header('Location: ?action=display');
-            } else {
-                $errorMsg = "Identifiant ou mot de passe incorrecte";
-                include "views/login.php";
-            }
+                echo $_SESSION["userId"];
+                header('Location: ?action=home');
+          } else {
+                $errorMsg = "Wrong login and/or password.";
+                header('Location: ?action=displayLogin');
+          }
+
         } else {
-            include "views/login.php";
+            header('Location: ?action=displayLogin');
+            $errorMsg = "Wrong login and/or password.";
         }
+        break;
+       
     break;
 
         // display one recipe
@@ -103,7 +111,8 @@ switch ($action) {
 
     break;
 
-    default : 
+    case 'home' : 
+    default  : 
     require('models/recipe.php');
     $recipes = GetAllRecipes();
     require('views/home.php');

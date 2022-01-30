@@ -6,27 +6,34 @@ include('header.php');
     <div class="h1-title">
       <h1>Se connecter</h1>
     </div>
-    <form class="form-signin" method="POST" action="?action=login">
-      <!-- Message d'erreur -->
-      <?php
-      if (isset($errorMsg)) {
+    <form class="login-form" method="POST" action="?action=login">
+            
+                <!-- firstname -->
+                <div class="mb-3">
+                    <label for="username" class="form-label">Pseudonyme</label>
+                    <input name="username" type="text" class="form-control input-form" required="">
+                </div>
+                <!-- mot de passe -->
+                <div class="mb-3">
+                    <label for="password" class="form-label">Mot de passe</label>
+                    <input name="password" type="password" class="form-control  input-form" required="">
+                </div>
+                <!-- Confirmation de mot de passe -->
+                
+                <div class="btn-container d-flex justify-content-center">
 
-        echo "<div class='alert alert-warning' role='alert'>$errorMsg</div>";
-      }
-      ?>
-      <div class="mb-3">
-        <label for="identifiant" class="form-label">Identifiant</label>
-        <input name="text" type="text" class="form-control input-form" id="identifiant">
-      </div>
-      <div class="mb-3">
-        <label for="exampleInputPassword1" class="form-label">Mot de passe</label>
-        <input name="password" type="password" class="form-control input-form" id="exampleInputPassword1">
-      </div>
-      <div class="d-flex justify-content-center my-2">
-        <button type="submit" class="btn btn-form btn-login">Se connecter</button>
-      </div>
+                    <!-- Bouton -->
+                    <button type="submit" class="btn btn-form btn-form">Se connecter</button>
+                </div>
+                
+                <!-- Message d'erreur -->
+                <?php
+                            if (isset($errorMsg)) {
 
-    </form>
+                                echo "<div class='alert alert-warning' role='alert'>$errorMsg</div>";
+                            }
+                            ?>
+            </form>
 
   </div>
 

@@ -1,7 +1,6 @@
 <?php
 include('controllers/generalController.php');
 
-
 // $sql = 'SELECT * FROM `ingredient` ';
 // //On prepare la requête
 // $query = $db_name->prepare($sql);

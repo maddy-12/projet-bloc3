@@ -30,13 +30,13 @@ function IsUsernameFree($username)
 //Get the username & pwd in order to login
 function GetUserIdFromUserAndPassword($username, $password)
 {
-    global $PDO;
+    global $connexion;
 
     //Check if the inputs are properly filled
-    if (!empty($username) && !empty($password)) {
+    
 
         //Request to get the user ID and the PWD
-        $response = $PDO->prepare("SELECT id FROM user WHERE username = :username and password = MD5(:password) ");
+        $response = $connexion->prepare("SELECT id FROM user WHERE username = :username AND password = MD5(:password) ");
         $response->execute(
             array(
                 "username" => $username,
@@ -49,13 +49,4 @@ function GetUserIdFromUserAndPassword($username, $password)
         } else {
             return -1;
         }
-        $users = $response->fetchAll();
-        //If user exists
-        if (count($users) == 1) {
-            return $users[0]['id'];
-            //If it doesn't exist
-        } else {
-            return -1;
-        }
-    }
 }
