@@ -8,7 +8,7 @@ switch ($action) {
 
     case 'displayRegister':
         include "views/register.php";
-        break;
+    break;
 
     case 'register':
         include "models/user.php";
@@ -51,13 +51,15 @@ switch ($action) {
         } else {
             include "views/register.php";
         }
-        break;
+    break;
 
         // Login
        
-     case 'displayLogin' : 
+    case 'displayLogin' : 
         include "views/login.php";
-     case 'login' :   
+    break;
+
+    case 'login' :   
         include "models/user.php";
         if (isset($_POST['username']) &&  isset($_POST['password'])) {
             $userId = GetUserIdFromUserAndPassword($_POST['username'], $_POST['password']);
@@ -70,8 +72,8 @@ switch ($action) {
             }
         } else {
             include "views/login.php";
-            break;
         }
+    break;
 
         // display one recipe
     case 'recipeDetail':
@@ -79,12 +81,12 @@ switch ($action) {
             include "models/recipe.php";
             $recipe =  GetOneRecipeFromId($_GET['id']);
             require('views/recipeDetail.php');
-    
-        break;
+        }
+    break;
 
         //display ingredient
 
-    case 'shoppingList':
+    case 'shoppingList' : 
 
         include "models/recipe.php";
         $recipes =  GetAllRecipes();
@@ -99,7 +101,7 @@ switch ($action) {
 
         include "views/shoppingList.php";
 
-        break;
+    break;
 
     default : 
     require('models/recipe.php');
