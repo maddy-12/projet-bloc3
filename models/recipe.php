@@ -1,6 +1,6 @@
 <?php
 
-include ("../api-rest/config/database_connect.php");
+include ("api-rest/config/database_connect.php");
 
 function GetOneRecipeFromId($id_recipe)
 {
@@ -13,5 +13,5 @@ function GetAllRecipes()
 {
   global $connexion;
   $response = $connexion->query("SELECT * FROM recipe");
-  return $response->fetchAll();
+  return $response;
 }

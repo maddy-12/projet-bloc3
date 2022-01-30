@@ -6,8 +6,12 @@ $action = $_GET["action"] ?? "display";
 switch ($action) {
         //REGISTER
 
+    case 'displayRegister':
+        include "views/register.php";
+        break;
+
     case 'register':
-        include "../models/user.php";
+        include "models/user.php";
 
         //Si user remplis correctement
         if (isset($_POST['username']) &&  isset($_POST['password']) && isset($_POST['confirm_password'])) {
@@ -37,7 +41,7 @@ switch ($action) {
             }
 
             if ($errorMsg) {
-                include "../views/register.php";
+                include "views/register.php";
             } else {
                 $userId = CreateNewUser($_POST['username'], $_POST['password']);
                 $_SESSION['userId'] = $userId;
@@ -45,13 +49,16 @@ switch ($action) {
                 // header('Location: ?action=display');
             }
         } else {
-            include "../views/register.php";
+            include "views/register.php";
         }
         break;
 
         // Login
-        include "../models/user.php";
-
+       
+     case 'displayLogin' : 
+        include "views/login.php";
+     case 'login' :   
+        include "models/user.php";
         if (isset($_POST['username']) &&  isset($_POST['password'])) {
             $userId = GetUserIdFromUserAndPassword($_POST['username'], $_POST['password']);
             if ($userId > 0) {
@@ -59,27 +66,44 @@ switch ($action) {
                 //header('Location: ?action=display');
             } else {
                 $errorMsg = "Identifiant ou mot de passe incorrecte";
-                include "../views/login.php";
+                include "views/login.php";
             }
         } else {
-            include "../views/login.php";
+            include "views/login.php";
             break;
         }
 
+        // display one recipe
+    case 'recipeDetail':
+        if (isset($_GET['id']) && $_GET['id'] > 0) {
+            include "models/recipe.php";
+            $recipe =  GetOneRecipeFromId($_GET['id']);
+            require('views/recipeDetail.php');
+    
+        break;
+
         //display ingredient
 
-    case 'displayIngredientsFromRecipe':
+    case 'shoppingList':
 
-        include "../models/recipe.php";
+        include "models/recipe.php";
         $recipes =  GetAllRecipes();
 
 
-        include "../models/ingredient.php";
+        include "models/ingredient.php";
         $ingredients = array();
 
         foreach ($recipes as $oneRecipe) {
             $ingredients[$oneRecipe['id']] = GetAllIngredientsFromRecipe($oneRecipe['id']);
         };
 
+        include "views/shoppingList.php";
+
         break;
+
+    default : 
+    require('models/recipe.php');
+    $recipes = GetAllRecipes();
+    require('views/home.php');
+    
 }

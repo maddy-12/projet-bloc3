@@ -1,6 +1,6 @@
 <?php
 
-include ("../api-rest/config/database_connect.php");
+include ("api-rest/config/database_connect.php");
 
  function GetAllIngredientsFromRecipe($id_recipe) {
     global $connexion;

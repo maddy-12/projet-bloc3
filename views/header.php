@@ -1,3 +1,6 @@
+<!doctype html>
+<html lang="fr">
+
 <!-- Navbar -->
 
 <head>
@@ -12,7 +15,7 @@
   <script src="https://kit.fontawesome.com/c8bdca93db.js" crossorigin="anonymous"></script>
 
   <!-- CSS -->
-  <link rel="stylesheet" href="../assets/style.css">
+  <link rel="stylesheet" href="assets/style.css">
 
   <!-- script -->
   <!-- Option 1: Bootstrap Bundle with Popper -->
@@ -21,7 +24,8 @@
 
   <title>BIOCOOK</title>
 </head>
-<nav id="navbar-white" class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+<body>
+<nav id="navbar-white" class="navbar fixed-top navbar-expand-lg navbar-light bg-light mb-5">
   <div class="container">
     <a class="navbar-brand" href="../index.php"><img src="assets/img/logo.png" alt="Logo BIOCOOK"></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -56,10 +60,10 @@
           //Si non connecté 
         } else { ?>
           <li class="nav-item">
-            <a class="nav-link" href="/login">Se connecter</a>
+            <a class="nav-link" href="index.php?action=displayLogin">Se connecter</a>
           </li>
           <li>
-            <a class="nav-link" href="/register"> S'inscrire</a>
+            <a class="nav-link" href="index.php?action=displayRegister"> S'inscrire</a>
           </li>
           </li>
         <?php

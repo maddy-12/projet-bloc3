@@ -2,24 +2,6 @@
 include('header.php');
 ?>
 
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- Bootstrap CSS -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
-  <!-- Font awesome -->
-  <script src="https://kit.fontawesome.com/c8bdca93db.js" crossorigin="anonymous"></script>
-
-  <!-- CSS -->
-  <link rel="stylesheet" href="../assets/style.css">
-
-  <title>BIOCOOK</title>
-</head>
-
-<body>
   <div class="container container-form">
     <div class="h1-title">
       <h1>Se connecter</h1>
@@ -48,7 +30,7 @@ include('header.php');
 
   </div>
 
-</body>
+
 
 <?php
 include('footer.php');
