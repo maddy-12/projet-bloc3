@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 $action = $_GET["action"] ?? "display";
 
 
@@ -44,7 +44,7 @@ switch ($action) {
                 include "views/register.php";
             } else {
                 $userId = CreateNewUser($_POST['username'], $_POST['password']);
-                session_start();
+
                 $_SESSION['userId'] = $userId;
 
                 header('Location: ?action=home');
@@ -56,7 +56,6 @@ switch ($action) {
 
         //Logout
     case 'logout':
-        include "models/user.php";
 
         if (isset($_SESSION['userId'])) {
             unset($_SESSION['userId']);
@@ -74,7 +73,6 @@ switch ($action) {
     case 'login':
 
         include "models/user.php";
-        session_start();
         if (isset($_POST['username']) && isset($_POST['password'])) {
             $userId = GetUserIdFromUserAndPassword($_POST['username'], $_POST['password']);
             if ($userId > 0) {

@@ -39,7 +39,7 @@
           </li>
           <!-- Si connecté on affiche -->
           <?php
-          session_start();
+
           if (isset($_SESSION['userId'])) {
           ?>
             <li class="nav-item">
