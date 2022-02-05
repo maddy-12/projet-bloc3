@@ -33,20 +33,18 @@ function GetUserIdFromUserAndPassword($username, $password)
     global $connexion;
 
     //Check if the inputs are properly filled
-    
-
-        //Request to get the user ID and the PWD
-        $response = $connexion->prepare("SELECT id FROM user WHERE username = :username AND password = MD5(:password) ");
-        $response->execute(
-            array(
-                "username" => $username,
-                "password" => $password
-            )
-        );
-        if ($response->rowCount() == 1) {
-            $row = $response->fetch();
-            return $row['id'];
-        } else {
-            return -1;
-        }
+    //Request to get the user ID and the PWD
+    $response = $connexion->prepare("SELECT id FROM user WHERE username = :username AND password = MD5(:password) ");
+    $response->execute(
+        array(
+            "username" => $username,
+            "password" => $password
+        )
+    );
+    if ($response->rowCount() == 1) {
+        $row = $response->fetch();
+        return $row['id'];
+    } else {
+        return -1;
+    }
 }

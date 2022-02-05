@@ -24,60 +24,62 @@
 
   <title>BIOCOOK</title>
 </head>
+
 <body>
-<nav id="navbar-white" class="navbar fixed-top navbar-expand-lg navbar-light bg-light mb-5">
-  <div class="container">
-    <a class="navbar-brand" href="../index.php"><img src="assets/img/logo.png" alt="Logo BIOCOOK"></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item">
-          <a class="nav-link active" href="../index.php">Home</a>
-        </li>
-        <!-- Si connecté on affiche -->
-        <?php
-        session_start();
-        if (isset($_SESSION['userId'])) {
-        ?>
+  <nav id="navbar-white" class="navbar fixed-top navbar-expand-lg navbar-light bg-light mb-5">
+    <div class="container">
+      <a class="navbar-brand" href="../index.php"><img src="assets/img/logo.png" alt="Logo BIOCOOK"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <a class="nav-link" href="recipeCreate.php">Créer une recette</a>
+            <a class="nav-link active" href="../index.php">Home</a>
           </li>
+          <!-- Si connecté on affiche -->
+          <?php
+          session_start();
+          if (isset($_SESSION['userId'])) {
+          ?>
+            <li class="nav-item">
+              <a class="nav-link" href="recipeCreate.php">Créer une recette</a>
+            </li>
 
-          <li class="nav-item">
-            <a class="nav-link" href="recipeCreatedUser.php">Recettes créée</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="shoppingList.php">Shopping list</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="favorites.php">Favoris</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="?action=logout" role="button">Logout</a>
-          </li>
-        <?php
-          //Si non connecté 
-        } else { ?>
-          <li class="nav-item">
-            <a class="nav-link" href="index.php?action=displayLogin">Se connecter</a>
-          </li>
-          <li>
-            <a class="nav-link" href="index.php?action=displayRegister"> S'inscrire</a>
-          </li>
-          </li>
-        <?php
-        }
-        ?>
+            <li class="nav-item">
+              <a class="nav-link" href="recipeCreatedUser.php">Recettes créée</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="shoppingList.php">Shopping list</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="favorites.php">Favoris</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="?action=logout" role="button">Logout</a>
+            </li>
+          <?php
+            //Si non connecté 
+          } else {
+          ?>
+            <li class="nav-item">
+              <a class="nav-link" href="index.php?action=displayLogin">Se connecter</a>
+            </li>
+            <li>
+              <a class="nav-link" href="index.php?action=displayRegister"> S'inscrire</a>
+            </li>
+            </li>
+          <?php
+          }
+          ?>
 
 
 
-      </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit" placeholder="Rechercher...">Rechercher</button>
-      </form>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit" placeholder="Rechercher...">Rechercher</button>
+        </form>
+      </div>
     </div>
-  </div>
-</nav>
+  </nav>

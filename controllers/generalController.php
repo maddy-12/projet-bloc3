@@ -8,7 +8,7 @@ switch ($action) {
 
     case 'displayRegister':
         include "views/register.php";
-    break;
+        break;
 
     case 'register':
         include "models/user.php";
@@ -52,36 +52,44 @@ switch ($action) {
         } else {
             include "views/register.php";
         }
-    break;
+        break;
 
-        // Login
-       
-    case 'displayLogin' : 
+        //Logout
+    case 'logout':
+        include "models/user.php";
+
+        if (isset($_SESSION['userId'])) {
+            unset($_SESSION['userId']);
+            session_destroy();
+        }
+        header('Location: ?action=displayLogin');
+
+        break;
+
+        // Login       
+    case 'displayLogin':
         include "views/login.php";
-    break;
+        break;
 
-    case 'login' :   
+    case 'login':
 
         include "models/user.php";
         session_start();
         if (isset($_POST['username']) && isset($_POST['password'])) {
-          $userId = GetUserIdFromUserAndPassword($_POST['username'], $_POST['password']);
-          if ($userId > 0) {
+            $userId = GetUserIdFromUserAndPassword($_POST['username'], $_POST['password']);
+            if ($userId > 0) {
                 $_SESSION['userId'] = $userId;
                 echo $_SESSION["userId"];
                 header('Location: ?action=home');
-          } else {
-                $errorMsg = "Wrong login and/or password.";
+            } else {
+                $errorMsg = "Identifiant ou mot de passe incorrectes";
                 header('Location: ?action=displayLogin');
-          }
-
+            }
         } else {
             header('Location: ?action=displayLogin');
-            $errorMsg = "Wrong login and/or password.";
+            $errorMsg = "Identifiant ou mot de passe incorrectes";
         }
         break;
-       
-    break;
 
         // display one recipe
     case 'recipeDetail':
@@ -90,11 +98,11 @@ switch ($action) {
             $recipe =  GetOneRecipeFromId($_GET['id']);
             require('views/recipeDetail.php');
         }
-    break;
+        break;
 
         //display ingredient
 
-    case 'shoppingList' : 
+    case 'shoppingList':
 
         include "models/recipe.php";
         $recipes =  GetAllRecipes();
@@ -109,12 +117,11 @@ switch ($action) {
 
         include "views/shoppingList.php";
 
-    break;
+        break;
 
-    case 'home' : 
-    default  : 
-    require('models/recipe.php');
-    $recipes = GetAllRecipes();
-    require('views/home.php');
-    
+    case 'home':
+    default:
+        require('models/recipe.php');
+        $recipes = GetAllRecipes();
+        require('views/home.php');
 }
