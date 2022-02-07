@@ -99,6 +99,14 @@ switch ($action) {
         break;
 
         //display ingredient
+    case 'addFavourites' :
+        if (isset($_SESSION['userId']) && $_GET['id'] > 0) {
+            include "models/recipe.php";
+            $favoriteRecipe = CreateFavoriteRecipe($_GET['id'], $_SESSION['userId']);
+            $message = "Recette ajoutée aux favoris";
+        }
+
+        break;
 
     case 'shoppingList':
 

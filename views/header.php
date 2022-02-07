@@ -50,10 +50,7 @@
               <a class="nav-link" href="recipeCreatedUser.php">Recettes créée</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="shoppingList.php">Shopping list</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="favorites.php">Favoris</a>
+              <a class="nav-link" href="?action=favourites">Favoris</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="?action=logout" role="button">Logout</a>

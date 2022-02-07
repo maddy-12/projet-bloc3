@@ -16,6 +16,14 @@ include('header.php');
         
               
                     <a href="index.php?action=shoppingList&amp;id=<?= $recipe['id']?>"  class="btn btn-card ">Voir la liste de course </a>
+                                  
+                    <a href="index.php?action=addFavourites&amp;id=<?= $recipe['id']?>"  class="btn btn-card ">Ajouter aux favoris </a>
+                    <?php
+                            if (isset($message)) {
+
+                                echo "<div class='alert alert-info' role='alert'>$message</div>";
+                            }
+                    ?>
                 </div>
             </div>
         </section>
