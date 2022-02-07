@@ -13,9 +13,7 @@ include('header.php');
             <HR class="hr-shoppingList"></HR>
             <ul class="list-group">
             <?php
-                 $recipeId = $oneRecipe['id'];
-                 if (isset($ingredients[$recipeId])) {
-                   foreach ($ingredients[$recipeId] as $ingredient) {
+                   foreach ($ingredients as $ingredient) {
             ?>
                 <li class="list-group-item">
                     <input class="form-check-input me-1" type="checkbox" value="" aria-label="...">
@@ -25,7 +23,7 @@ include('header.php');
                 </li>
             <?php
                  }
-                    }
+                    
             ?>
             </ul>
         </div>

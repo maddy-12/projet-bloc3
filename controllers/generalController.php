@@ -131,17 +131,10 @@ switch ($action) {
     break ;
 
     case 'shoppingList':
-
         include "models/recipe.php";
-        $recipes =  GetAllRecipes();
-
-
+        $recipe =  GetOneRecipeFromId($_GET['id']);
         include "models/ingredient.php";
-        $ingredients = array();
-
-        foreach ($recipes as $oneRecipe) {
-            $ingredients[$oneRecipe['id']] = GetAllIngredientsFromRecipe($oneRecipe['id']);
-        };
+        $ingredients =  GetAllIngredientsFromRecipe($recipe['id']);
 
         include "views/shoppingList.php";
 
