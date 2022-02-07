@@ -104,9 +104,31 @@ switch ($action) {
             include "models/recipe.php";
             $favoriteRecipe = CreateFavoriteRecipe($_GET['id'], $_SESSION['userId']);
             $message = "Recette ajoutée aux favoris";
+ 
+            header('Location: ?action=recipeDetail');
+    
         }
 
         break;
+
+
+    case 'favourites' :
+        if (isset($_SESSION['userId'])) {
+            include "models/recipe.php";
+            $recipesFavourites = GetAllFavouritesRecipes($_SESSION['userId']);
+            include "views/favorites.php";
+        }
+    
+    break;
+
+    case 'deleteFavoriteRecipe' :
+        if (isset($_SESSION['userId'])) {
+            include "models/recipe.php";
+            $recipesFavourites = GetAllFavouritesRecipes($_SESSION['userId']);
+            DeleteFavoriteRecipe($_GET['id'], $_SESSION['userId']);
+            header('Location: ?action=favourites');
+        }
+    break ;
 
     case 'shoppingList':
 

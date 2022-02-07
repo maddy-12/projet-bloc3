@@ -27,3 +27,17 @@ function CreateFavoriteRecipe($id_recipe, $id_user){
   );
   return $connexion->lastInsertId();
 }
+
+function GetAllFavouritesRecipes($id_user)
+{
+     global $connexion;
+     $response = $connexion->query("SELECT recipe.name, recipe.image, recipe.id FROM recipe INNER JOIN favourites on recipe.id = favourites.id_recipe 
+     INNER JOIN user on favourites.id_user = user.id where favourites.id_user = '$id_user'");
+     return $response->fetchAll();
+}
+
+function DeleteFavoriteRecipe($id_recipe, $id_user){
+  global $connexion;
+  $response = $connexion->query("DELETE FROM favourites where favourites.id_recipe = '$id_recipe' AND favourites.id_user = '$id_user'");
+  return $response->fetchAll();
+}
