@@ -21,7 +21,7 @@ include('header.php');
                     <?php
                             if (isset($message)) {
 
-                                echo "<div class='alert alert-info' role='alert'>$message</div>";
+                                echo "<div class='alert alert-warning' role='alert'>$message</div>";
                             }
                     ?>
                 </div>

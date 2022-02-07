@@ -19,8 +19,8 @@
                     <img src="<?= ($recipe['image']); ?>" class="card-img-top" alt="...">
                     <div class="card-body">
                         <h5 class="card-title"><?= htmlspecialchars($recipe['name']); ?></h5>
-                        <a href="recipeDetail.php" class="btn btn-card ">Voir la recette </a>
-                        <a href="shoppingList.php" class="btn btn-card ">Liste de courses</a>
+                        <a href="index.php?action=recipeDetail&amp;id=<?= $recipe['id']?>" class="btn btn-card ">Voir la recette </a>
+                        <a href="index.php?action=shoppingList&amp;id=<?= $recipe['id']?>" class="btn btn-card ">Liste de courses</a>
                         <a href="index.php?action=deleteFavoriteRecipe&amp;id=<?= $recipe['id']?>"  class="btn btn-card ">Supprimer</a>
                     </div>
                 </div>
