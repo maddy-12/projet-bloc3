@@ -2,7 +2,7 @@
 include('header.php');
 ?>
 
-    <div class="container my-5">
+    <div class="container mg-top">
         <section>
             <h1 class="h1-title"><?= $recipe['name']?></h1>
             <div class="row my-3">
@@ -21,11 +21,11 @@ include('header.php');
                         if (isset($_SESSION['userId'])) {
                     ?>    
 
-                    <a href="index.php?action=addFavourites&amp;id=<?= $recipe['id']?>"  class="btn btn-card ">Ajouter aux favoris </a>
-                   
+                    <a href="index.php?action=addFavourites&amp;id=<?= $recipe['id']?>" class="btn btn-card">Ajouter aux favoris </a>
                     <?php
-                        }
-                    ?>
+                        }   
+                ?>
+                   
               
                 </div>
             </div>

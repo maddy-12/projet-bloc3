@@ -42,3 +42,16 @@ function DeleteFavoriteRecipe($id_recipe, $id_user){
   $response = $connexion->query("DELETE FROM favourites where favourites.id_recipe = '$id_recipe' AND favourites.id_user = '$id_user'");
   return $response->fetchAll();
 }
+
+function IsFavoriteRecipe($id_recipe, $id_user)
+{
+    global $connexion;
+    $response = $connexion->prepare("SELECT * FROM favourites WHERE id_recipe = :id_recipe, id_user = :id_user ");
+    $response->execute(
+        array(
+            "id_recipe" => $id_recipe,
+            "id_user" => $id_user
+        )
+    );
+    return $response->rowCount() == 0;
+}
