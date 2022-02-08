@@ -106,7 +106,7 @@ switch ($action) {
         if (isset($_SESSION['userId']) && $_GET['id'] > 0) {
             include "models/recipe.php";
           
-            if (IsFavoriteRecipe($_SESSION['userId'], $_GET['id'])) {
+            if (IsNotFavoriteRecipe($_SESSION['userId'], $_GET['id'])) {
                 $favoriteRecipe = CreateFavoriteRecipe($_GET['id'], $_SESSION['userId']);
                 header('Location: ?action=favourites');
             } 
@@ -115,9 +115,6 @@ switch ($action) {
             header('Location: ?action=recipeDetail&id='.$_GET['id']);
             }
         }
-
-       
-
        
         break;
 
