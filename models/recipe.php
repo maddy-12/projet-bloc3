@@ -25,6 +25,7 @@ function CreateFavoriteRecipe($id_recipe, $id_user){
           "id_recipe" => $id_recipe
       )
   );
+
   return $connexion->lastInsertId();
 }
 

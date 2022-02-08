@@ -32,7 +32,7 @@ include('header.php');
 
                                 echo "<div class='alert alert-warning' role='alert'>$errorMsg</div>";
                             }
-                            ?>
+                ?>
             </form>
 
   </div>

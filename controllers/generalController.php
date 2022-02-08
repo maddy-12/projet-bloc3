@@ -94,19 +94,20 @@ switch ($action) {
         if (isset($_GET['id']) && $_GET['id'] > 0) {
             include "models/recipe.php";
             $recipe =  GetOneRecipeFromId($_GET['id']);
+            include "models/ingredient.php";
+            $ingredients =  GetAllIngredientsFromRecipe($recipe['id']);
+    
             require('views/recipeDetail.php');
         }
         break;
 
-        //display ingredient
+        //Add favourite
     case 'addFavourites' :
+
         if (isset($_SESSION['userId']) && $_GET['id'] > 0) {
             include "models/recipe.php";
             $favoriteRecipe = CreateFavoriteRecipe($_GET['id'], $_SESSION['userId']);
-            
-           // $idrecipe = $_GET['id'];
             header('Location: ?action=recipeDetail&id='.$_GET['id'].'');
-            $message = "Recette ajoutée aux favoris";
         }
 
         break;
@@ -130,6 +131,7 @@ switch ($action) {
         }
     break ;
 
+    //display ingredient
     case 'shoppingList':
         include "models/recipe.php";
         $recipe =  GetOneRecipeFromId($_GET['id']);
