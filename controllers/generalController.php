@@ -103,16 +103,20 @@ switch ($action) {
 
         //Add favourite
     case 'addFavourites' :
-        $msg = NULL;
         if (isset($_SESSION['userId']) && $_GET['id'] > 0) {
             include "models/recipe.php";
-       
-            $favoriteRecipe = CreateFavoriteRecipe($_GET['id'], $_SESSION['userId']);
-        
+          
+            if (IsFavoriteRecipe($_SESSION['userId'], $_GET['id'])) {
+                $favoriteRecipe = CreateFavoriteRecipe($_GET['id'], $_SESSION['userId']);
+                header('Location: ?action=favourites');
+            } 
+            else {
+            $message = "Recette déjà ajoutée";
             header('Location: ?action=recipeDetail&id='.$_GET['id']);
-      
+            }
         }
-        
+
+       
 
        
         break;
