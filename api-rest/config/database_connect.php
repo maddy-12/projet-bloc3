@@ -2,7 +2,7 @@
 
 // Connexion à la base de données
 $host = "localhost";
-$db_name = "biocook";
+$db_name = "biocook_2";
 $username = "root";
 $password = "";
 $connexion;
