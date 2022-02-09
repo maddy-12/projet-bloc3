@@ -93,24 +93,55 @@ switch ($action) {
         if (isset($_GET['id']) && $_GET['id'] > 0) {
             include "models/recipe.php";
             $recipe =  GetOneRecipeFromId($_GET['id']);
+            include "models/ingredient.php";
+            $ingredients =  GetAllIngredientsFromRecipe($recipe['id']);
+    
             require('views/recipeDetail.php');
         }
         break;
 
-        //display ingredient
+        //Add favourite
+    case 'addFavourites' :
+        if (isset($_SESSION['userId']) && $_GET['id'] > 0) {
+            include "models/recipe.php";
+          
+            if (IsNotFavoriteRecipe($_SESSION['userId'], $_GET['id'])) {
+                $favoriteRecipe = CreateFavoriteRecipe($_GET['id'], $_SESSION['userId']);
+                header('Location: ?action=favourites');
+            } 
+            else {
+            $message = "Recette déjà ajoutée";
+            header('Location: ?action=recipeDetail&id='.$_GET['id']);
+            }
+        }
+       
+        break;
 
+
+    case 'favourites' :
+        if (isset($_SESSION['userId'])) {
+            include "models/recipe.php";
+            $recipesFavourites = GetAllFavouritesRecipes($_SESSION['userId']);
+            include "views/favorites.php";
+        }
+    
+    break;
+
+    case 'deleteFavoriteRecipe' :
+        if (isset($_SESSION['userId'])) {
+            include "models/recipe.php";
+            $recipesFavourites = GetAllFavouritesRecipes($_SESSION['userId']);
+            DeleteFavoriteRecipe($_GET['id'], $_SESSION['userId']);
+            header('Location: ?action=favourites');
+        }
+    break ;
+
+    //display ingredient
     case 'shoppingList':
-
         include "models/recipe.php";
-        $recipes =  GetAllRecipes();
-
-
+        $recipe =  GetOneRecipeFromId($_GET['id']);
         include "models/ingredient.php";
-        $ingredients = array();
-
-        foreach ($recipes as $oneRecipe) {
-            $ingredients[$oneRecipe['id']] = GetAllIngredientsFromRecipe($oneRecipe['id']);
-        };
+        $ingredients =  GetAllIngredientsFromRecipe($recipe['id']);
 
         include "views/shoppingList.php";
 

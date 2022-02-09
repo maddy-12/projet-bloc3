@@ -2,20 +2,35 @@
 include('header.php');
 ?>
 
-    <div class="container">
+    <div class="container mg-top">
         <section>
             <h1 class="h1-title"><?= $recipe['name']?></h1>
             <div class="row my-3">
                 <div class="col-lg-5 col-md-12  shadow p-3 my-5 mb-5 bg-white rounded">
-                    <a data-fancybox="gallery" href="images/search.png">  <img src="https://www.atelierdeschefs.com/media/recette-d13804-bibimbap.jpg" class="card-img-top" alt="..."></a>
+                    <img src="<?= $recipe['image']?>" class="card-img-top" alt="...">
                 </div>
                 <div class="col-lg-7 col-md-12 my-5">
                     <h3 class="text-right">Description</h3>
                     <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta quaerat voluptas illo quas, voluptatem praesentium ratione voluptate error soluta corporis, sunt iste, eum est. Consequuntur est incidunt fuga labore dicta! </p>
-                    
-        
               
                     <a href="index.php?action=shoppingList&amp;id=<?= $recipe['id']?>"  class="btn btn-card ">Voir la liste de course </a>
+                    <?php
+
+                        if (isset($_SESSION['userId'])) {
+                    ?>    
+
+                    <a href="index.php?action=addFavourites&amp;id=<?= $recipe['id']?>" class="btn btn-card">Ajouter aux favoris </a>
+                    <?php
+                        }   
+                        var_dump($message);
+                            if (isset($message)) {
+
+                                echo "<div class='alert alert-warning' role='alert'>$message</div>";
+                            }
+                    ?>
+               
+                   
+              
                 </div>
             </div>
         </section>
@@ -23,9 +38,18 @@ include('header.php');
         <div class="row align-items-start">
             <div class="col border-end "> <h4 class="text-success">Ingrédients </h4>
                 <ul>
-                <li>   
-                    ingrédients
-                <li>
+                    <?php
+                    foreach ($ingredients as $ingredient) {
+                    ?>
+                        <li class="list-item">
+                            <?= htmlspecialchars($ingredient['quantity']); ?>
+                            <?= htmlspecialchars($ingredient['text']); ?>
+                            <?= htmlspecialchars($ingredient['name']); ?>
+                        </li>
+                    <?php
+                        }
+                            
+                    ?>
                 </ul>
                   
             </div>
