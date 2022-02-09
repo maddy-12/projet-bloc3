@@ -95,48 +95,47 @@ switch ($action) {
             $recipe =  GetOneRecipeFromId($_GET['id']);
             include "models/ingredient.php";
             $ingredients =  GetAllIngredientsFromRecipe($recipe['id']);
-    
+
             require('views/recipeDetail.php');
         }
         break;
 
         //Add favourite
-    case 'addFavourites' :
+    case 'addFavourites':
         if (isset($_SESSION['userId']) && $_GET['id'] > 0) {
             include "models/recipe.php";
-          
+
             if (IsNotFavoriteRecipe($_SESSION['userId'], $_GET['id'])) {
                 $favoriteRecipe = CreateFavoriteRecipe($_GET['id'], $_SESSION['userId']);
                 header('Location: ?action=favourites');
-            } 
-            else {
-            $message = "Recette déjà ajoutée";
-            header('Location: ?action=recipeDetail&id='.$_GET['id']);
+            } else {
+                $message = "Recette déjà ajoutée";
+                header('Location: ?action=recipeDetail&id=' . $_GET['id']);
             }
         }
-       
+
         break;
 
 
-    case 'favourites' :
+    case 'favourites':
         if (isset($_SESSION['userId'])) {
             include "models/recipe.php";
             $recipesFavourites = GetAllFavouritesRecipes($_SESSION['userId']);
             include "views/favorites.php";
         }
-    
-    break;
 
-    case 'deleteFavoriteRecipe' :
+        break;
+
+    case 'deleteFavoriteRecipe':
         if (isset($_SESSION['userId'])) {
             include "models/recipe.php";
             $recipesFavourites = GetAllFavouritesRecipes($_SESSION['userId']);
             DeleteFavoriteRecipe($_GET['id'], $_SESSION['userId']);
             header('Location: ?action=favourites');
         }
-    break ;
+        break;
 
-    //display ingredient
+        //display ingredient
     case 'shoppingList':
         include "models/recipe.php";
         $recipe =  GetOneRecipeFromId($_GET['id']);
@@ -147,27 +146,32 @@ switch ($action) {
 
         break;
 
-    // Space Admin
-    case 'admin' :
+        // Space Admin
+    case 'admin':
         require('models/recipe.php');
         $recipes = GetAllRecipes();
-         include "views/pageAdmin.php";
-         break;
-    
-    case 'deleteRecipe' :
+        include "views/pageAdmin.php";
+        break;
+
+    case 'deleteRecipe':
         require('models/recipe.php');
         DeleteRecipe($_GET['id']);
         header('Location: ?action=admin');
         break;
 
-    /*case 'updateRecipe' :
+        /*case 'updateRecipe' :
         
         break;    */
 
 
-     /*case 'createRecipe' :
-        
-    break;    */
+    case 'createRecipe':
+        include "../models/pageAdmin.php";
+        if (isset($_SESSION['userId'])) {
+
+            CreateNewRecipe($_SESSION['userId'], $_POST['name'], $_POST['cooking_time'], $_POST['preparing_time'], $_POST['instructions'], $_POST['categoryId'], $_POST['image'], $_POST['created']);
+        }
+        header('Location: ?action=admin');
+        break;
 
     case 'home':
     default:

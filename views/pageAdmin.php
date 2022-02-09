@@ -31,29 +31,29 @@ include('header.php');
         <div class="form-group row py-2">
           <label for="staticEmail" class="col-sm-2 col-form-label">Titre de la recette</label>
           <div class="col-sm-10">
-            <input type="password" class="form-control" id="inputPassword" placeholder="Boeuf bourgignon">
+            <input type="text" class="form-control" id="inputtext" placeholder="Boeuf bourgignon">
           </div>
         </div>
         <div class="form-group row py-2">
-          <label for="inputPassword" class="col-sm-2 col-form-label">Temps de cuisson</label>
+          <label for="inputtext" class="col-sm-2 col-form-label">Temps de cuisson</label>
           <div class="col-sm-10">
-            <input type="password" class="form-control" id="inputPassword" placeholder="40 h">
+            <input type="text" class="form-control" id="inputtext" placeholder="40 h">
           </div>
         </div>
         <div class="form-group row py-2">
-          <label for="inputPassword" class="col-sm-2 col-form-label">Temps de préparation</label>
+          <label for="inputtext" class="col-sm-2 col-form-label">Temps de préparation</label>
           <div class="col-sm-10">
-            <input type="password" class="form-control" id="inputPassword" placeholder="40 h">
+            <input type="text" class="form-control" id="inputtext" placeholder="40 h">
           </div>
         </div>
         <div class="form-group row py-2">
-          <label for="inputPassword" class="col-sm-2 col-form-label">Instructions</label>
+          <label for="inputtext" class="col-sm-2 col-form-label">Instructions</label>
           <div class="col-sm-10">
             <textarea class="form-control is-invalid" id="validationTextarea" placeholder="Ajouter le sel etc"></textarea>
           </div>
         </div>
         <div class="form-group row py-2">
-          <label for="inputPassword" class="col-sm-2 col-form-label">Image de la recette</label>
+          <label for="inputtext" class="col-sm-2 col-form-label">Image de la recette</label>
           <div class="custom-file col-sm-10">
             <input type="file" class="custom-file-input" id="customFile">
           </div>

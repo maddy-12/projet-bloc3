@@ -1,6 +1,6 @@
 <?php
 
-include ("api-rest/config/database_connect.php");
+include("api-rest/config/database_connect.php");
 
 function GetOneRecipeFromId($id_recipe)
 {
@@ -16,14 +16,15 @@ function GetAllRecipes()
   return $response;
 }
 
-function CreateFavoriteRecipe($id_recipe, $id_user){
+function CreateFavoriteRecipe($id_recipe, $id_user)
+{
   global $connexion;
   $response = $connexion->prepare("INSERT INTO favourites (id_user, id_recipe) values (:id_user, :id_recipe )");
   $response->execute(
-      array(
-          "id_user" => $id_user,
-          "id_recipe" => $id_recipe
-      )
+    array(
+      "id_user" => $id_user,
+      "id_recipe" => $id_recipe
+    )
   );
 
   return $connexion->lastInsertId();
@@ -31,13 +32,14 @@ function CreateFavoriteRecipe($id_recipe, $id_user){
 
 function GetAllFavouritesRecipes($id_user)
 {
-     global $connexion;
-     $response = $connexion->query("SELECT recipe.name, recipe.image, recipe.id FROM recipe INNER JOIN favourites on recipe.id = favourites.id_recipe 
+  global $connexion;
+  $response = $connexion->query("SELECT recipe.name, recipe.image, recipe.id FROM recipe INNER JOIN favourites on recipe.id = favourites.id_recipe 
      INNER JOIN user on favourites.id_user = user.id where favourites.id_user = '$id_user'");
-     return $response->fetchAll();
+  return $response->fetchAll();
 }
 
-function DeleteFavoriteRecipe($id_recipe, $id_user){
+function DeleteFavoriteRecipe($id_recipe, $id_user)
+{
   global $connexion;
   $response = $connexion->query("DELETE FROM favourites where favourites.id_recipe = '$id_recipe' AND favourites.id_user = '$id_user'");
   return $response->fetchAll();
@@ -45,19 +47,40 @@ function DeleteFavoriteRecipe($id_recipe, $id_user){
 
 function IsNotFavoriteRecipe($id_user, $id_recipe)
 {
-    global $connexion;
-    $response = $connexion->prepare("SELECT * FROM favourites WHERE id_user = :id_user  AND id_recipe = :id_recipe");
-    $response->execute(
-        array(
-          "id_user" => $id_user,
-          "id_recipe" => $id_recipe
-        )
-    );
-    return $response->rowCount() == 0;
+  global $connexion;
+  $response = $connexion->prepare("SELECT * FROM favourites WHERE id_user = :id_user  AND id_recipe = :id_recipe");
+  $response->execute(
+    array(
+      "id_user" => $id_user,
+      "id_recipe" => $id_recipe
+    )
+  );
+  return $response->rowCount() == 0;
 }
 
-function DeleteRecipe($id_recipe){
+function DeleteRecipe($id_recipe)
+{
   global $connexion;
   $response = $connexion->query("DELETE FROM recipe where id = '$id_recipe'");
   return $response->fetchAll();
+}
+
+// Create recipe
+function CreateNewRecipe($userId, $name, $cooking_time, $preparing_time, $instructions, $image, $created, $categoryId)
+{
+  global $connexion;
+
+  $response = $connexion->prepare("INSERT INTO recipe(name, cooking_time, preparing_time, instructions, id_user, id_category, image, created, description ) values (:name, :cooking_time, :preparing_time, :instructions, :id_user, :id_category, :image, :created, :description)");
+  $response->execute(
+    array(
+      "id_user" => $userId,
+      "name" => $name,
+      "cooking_time" => $cooking_time,
+      "preparing_time" => $preparing_time,
+      "instructions" => $instructions,
+      "id_category" => $categoryId,
+      "image" => $$image,
+      "created" => $created
+    )
+  );
 }
