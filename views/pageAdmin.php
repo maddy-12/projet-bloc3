@@ -66,22 +66,29 @@ include('header.php');
     <section>
       <div class="row d-flex justify-content-center">
         <?php
-        while ($recipe = $recipes->fetch()) {
+        if (!empty($recipes)) {
+          while ($recipe = $recipes->fetch()) {
 
         ?>
-          <div class="col-3">
-            <!-- Cartes de recettes -->
-            <div class="card" style="width: 18rem;">
-              <img src="<?= $recipe['image'] ?>" class="card-img-top" alt="...">
-              <div class="text-center">
-                <h5 class="card-title"> <?= $recipe['name']; ?></h5>
-                <a href="index.php?action=recipeDetail&amp;id=<?= $recipe['id'] ?>" class="btn btn-primary btn-card ">Voir la recette</a>
+            <div class="col-3">
+              <!-- Cartes de recettes -->
+              <div class="card" style="width: 18rem;">
+                <img src="<?= $recipe['image'] ?>" class="card-img-top" alt="...">
+                <div class="text-center">
+                  <h5 class="card-title"> <?= $recipe['name']; ?></h5>
+                  <a href="index.php?action=recipeDetail&amp;id=<?= $recipe['id'] ?>" class="btn btn-primary btn-card ">Voir la recette</a>
+                </div>
               </div>
             </div>
-          </div>
+          <?php
+          }
+          $recipes->closeCursor();
+        } else {
+          ?>
+          <p>Vous n'avez pas de recettes</p>
         <?php
         }
-        $recipes->closeCursor();
+
         ?>
       </div>
     </section>
