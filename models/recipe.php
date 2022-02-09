@@ -55,3 +55,9 @@ function IsNotFavoriteRecipe($id_user, $id_recipe)
     );
     return $response->rowCount() == 0;
 }
+
+function DeleteRecipe($id_recipe){
+  global $connexion;
+  $response = $connexion->query("DELETE FROM recipe where id = '$id_recipe'");
+  return $response->fetchAll();
+}

@@ -5,14 +5,13 @@ include('header.php');
     <div class="container mg-top">
         <section>
             <h1 class="h1-title"><?= $recipe['name']?></h1>
-            <div class="row my-3">
-                <div class="col-lg-5 col-md-12  shadow p-3 my-5 mb-5 bg-white rounded">
+            <div class="row">
+                <div class="col-12  shadow p-3 my-5 mb-5 bg-white rounded">
                     <img src="<?= $recipe['image']?>" class="card-img-top" alt="...">
                 </div>
-                <div class="col-lg-7 col-md-12 my-5">
-                    <h3 class="text-right">Description</h3>
-                    <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Dicta quaerat voluptas illo quas, voluptatem praesentium ratione voluptate error soluta corporis, sunt iste, eum est. Consequuntur est incidunt fuga labore dicta! </p>
-              
+            </div>
+            <div class="row mb-4">
+            <div class="col-6">
                     <a href="index.php?action=shoppingList&amp;id=<?= $recipe['id']?>"  class="btn btn-card ">Voir la liste de course </a>
                     <?php
 
@@ -22,15 +21,15 @@ include('header.php');
                     <a href="index.php?action=addFavourites&amp;id=<?= $recipe['id']?>" class="btn btn-card">Ajouter aux favoris </a>
                     <?php
                         }   
-                        var_dump($message);
+                       // var_dump($message);
                             if (isset($message)) {
 
                                 echo "<div class='alert alert-warning' role='alert'>$message</div>";
                             }
                     ?>
+
+                    <span>Créée le : <?= $recipe['created']?></span>
                
-                   
-              
                 </div>
             </div>
         </section>

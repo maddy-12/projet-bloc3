@@ -43,7 +43,7 @@
           if (isset($_SESSION['userId'])) {
           ?>
             <li class="nav-item">
-              <a class="nav-link" href="recipeCreate.php">Créer une recette</a>
+              <a class="nav-link" href="?action=admin">Espace Admin</a>
             </li>
 
             <li class="nav-item">

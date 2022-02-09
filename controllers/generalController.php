@@ -147,6 +147,28 @@ switch ($action) {
 
         break;
 
+    // Space Admin
+    case 'admin' :
+        require('models/recipe.php');
+        $recipes = GetAllRecipes();
+         include "views/pageAdmin.php";
+         break;
+    
+    case 'deleteRecipe' :
+        require('models/recipe.php');
+        DeleteRecipe($_GET['id']);
+        header('Location: ?action=admin');
+        break;
+
+    /*case 'updateRecipe' :
+        
+        break;    */
+
+
+     /*case 'createRecipe' :
+        
+    break;    */
+
     case 'home':
     default:
         require('models/recipe.php');

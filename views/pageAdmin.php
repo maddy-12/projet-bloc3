@@ -76,7 +76,9 @@ include('header.php');
                 <img src="<?= $recipe['image'] ?>" class="card-img-top" alt="...">
                 <div class="text-center">
                   <h5 class="card-title"> <?= $recipe['name']; ?></h5>
-                  <a href="index.php?action=recipeDetail&amp;id=<?= $recipe['id'] ?>" class="btn btn-primary btn-card ">Voir la recette</a>
+                  <a href="index.php?action=recipeDetail&amp;id=<?= $recipe['id'] ?>" class="btn btn-primary btn-card ">Voir</a>
+                  <a href="index.php?action=updateRecipe&amp;id=<?= $recipe['id'] ?>" class="btn btn-primary btn-card ">Modifier</a>
+                  <a href="index.php?action=deleteRecipe&amp;id=<?= $recipe['id'] ?>" class="btn btn-primary btn-card ">Supprimer</a>
                 </div>
               </div>
             </div>
