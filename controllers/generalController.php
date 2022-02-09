@@ -2,7 +2,6 @@
 session_start();
 $action = $_GET["action"] ?? "display";
 
-
 switch ($action) {
         //REGISTER
 
