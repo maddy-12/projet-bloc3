@@ -66,19 +66,18 @@ function DeleteRecipe($id_recipe)
 }
 
 // Create recipe
-function CreateNewRecipe($name, $cooking_time, $preparing_time, $instructions, $image, $categoryId)
+function CreateNewRecipe($name, $cooking_time, $preparing_time, $instructions, $categoryId, $image)
 {
   global $connexion;
 
-  var_dump($image);
-  $response = $connexion->prepare("INSERT INTO recipe(name, cooking_time, preparing_time, instructions, id_category, image ) values (:name, :cooking_time, :preparing_time, :instructions, :id_category, :image)");
+  $response = $connexion->prepare("INSERT INTO recipe(name, cooking_time, preparing_time, instructions, id_category, image ) values (:name, :cooking_time, :preparing_time, :instructions, :categoryId, :image)");
   $response->execute(
     array(
       "name" => $name,
       "cooking_time" => $cooking_time,
       "preparing_time" => $preparing_time,
       "instructions" => $instructions,
-      "id_category" => $categoryId,
+      "categoryId" => intval($categoryId),
       "image" => $image,
     )
   );
@@ -89,4 +88,22 @@ function AllCategory()
 
   $response = $connexion->query("SELECT * FROM category");
   return $response->fetchAll();
+}
+
+function UpdateRecipe($id, $name, $cooking_time, $preparing_time, $instructions, $categoryId, $image)
+{
+  global $connexion;
+
+  $response = $connexion->prepare("Update recipe set name = :name, cooking_time = :cooking_time, preparing_time = :preparing_time, instructions = :instructions, id_category = :categoryId, image = :image where id = :id");
+  $response->execute(
+    array(
+      "id" => $id,
+      "name" => $name,
+      "cooking_time" => $cooking_time,
+      "preparing_time" => $preparing_time,
+      "instructions" => $instructions,
+      "categoryId" => intval($categoryId),
+      "image" => $image
+    )
+  );
 }

@@ -116,7 +116,6 @@ switch ($action) {
 
         break;
 
-
     case 'favourites':
         if (isset($_SESSION['userId'])) {
             include "models/recipe.php";
@@ -154,21 +153,32 @@ switch ($action) {
         include "views/pageAdmin.php";
         break;
 
+    case 'adminUpdateRecipe':
+        require('models/recipe.php');
+        $categories = AllCategory();
+        $recipe = GetOneRecipeFromId($_GET['id']);
+        include "views/pageAdminUpdate.php";
+        break;
+
     case 'deleteRecipe':
         require('models/recipe.php');
         DeleteRecipe($_GET['id']);
         header('Location: ?action=admin');
         break;
 
-        /*case 'updateRecipe' :
-        
-        break;    */
+    case 'updateRecipe':
+        require('models/recipe.php');
+        if (isset($_POST['name'])) {
+            UpdateRecipe($_GET['id'], $_POST['name'], $_POST['cooking_time'], $_POST['preparing_time'], $_POST['instructions'], $_POST['id_category'], $_POST['image']);
+        }
+        header('Location: ?action=admin');
+        break;
 
         //Create recipe
     case 'createRecipe':
         include "models/recipe.php";
         if (isset($_SESSION['userId'])) {
-            CreateNewRecipe($_POST['name'], $_POST['cooking_time'], $_POST['preparing_time'], $_POST['instructions'], $_POST['image'], $_POST['id_category'],);
+            CreateNewRecipe($_POST['name'], $_POST['cooking_time'], $_POST['preparing_time'], $_POST['instructions'], $_POST['id_category'], $_POST['image']);
         }
         header('Location: ?action=admin');
         break;
