@@ -61,8 +61,7 @@ function IsNotFavoriteRecipe($id_user, $id_recipe)
 function DeleteRecipe($id_recipe)
 {
   global $connexion;
-  $response = $connexion->query("DELETE FROM recipe where id = '$id_recipe'");
-  return $response->fetchAll();
+  $connexion->query("DELETE FROM recipe where id = $id_recipe");
 }
 
 // Create recipe
