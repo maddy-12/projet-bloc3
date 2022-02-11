@@ -66,21 +66,27 @@ function DeleteRecipe($id_recipe)
 }
 
 // Create recipe
-function CreateNewRecipe($userId, $name, $cooking_time, $preparing_time, $instructions, $image, $created, $categoryId)
+function CreateNewRecipe($name, $cooking_time, $preparing_time, $instructions, $image, $categoryId)
 {
   global $connexion;
 
-  $response = $connexion->prepare("INSERT INTO recipe(name, cooking_time, preparing_time, instructions, id_user, id_category, image, created, description ) values (:name, :cooking_time, :preparing_time, :instructions, :id_user, :id_category, :image, :created, :description)");
+  var_dump($image);
+  $response = $connexion->prepare("INSERT INTO recipe(name, cooking_time, preparing_time, instructions, id_category, image ) values (:name, :cooking_time, :preparing_time, :instructions, :id_category, :image)");
   $response->execute(
     array(
-      "id_user" => $userId,
       "name" => $name,
       "cooking_time" => $cooking_time,
       "preparing_time" => $preparing_time,
       "instructions" => $instructions,
       "id_category" => $categoryId,
-      "image" => $$image,
-      "created" => $created
+      "image" => $image,
     )
   );
+}
+function AllCategory()
+{
+  global $connexion;
+
+  $response = $connexion->query("SELECT * FROM category");
+  return $response->fetchAll();
 }

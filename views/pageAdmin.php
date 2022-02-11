@@ -27,36 +27,45 @@ include('header.php');
     <!-- Formulaire de création de recette -->
     <section>
       <h1 class="h1-title">Title of recipe</h1>
-      <form>
+      <form class="input-group" method="POST" action="?action=createRecipe">
         <div class="form-group row py-2">
-          <label for="staticEmail" class="col-sm-2 col-form-label">Titre de la recette</label>
+          <label for="name" class="col-sm-2 col-form-label">Titre de la recette</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="inputtext" placeholder="Boeuf bourgignon">
+            <input name="name" type="text" class="form-control" id="name" placeholder="Boeuf bourgignon">
           </div>
         </div>
         <div class="form-group row py-2">
-          <label for="inputtext" class="col-sm-2 col-form-label">Temps de cuisson</label>
+          <label for="cooking_time" class="col-sm-2 col-form-label">Temps de cuisson</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="inputtext" placeholder="40 h">
+            <input name="cooking_time" type="text" class="form-control" id="cooking_time" placeholder="40 h">
           </div>
         </div>
         <div class="form-group row py-2">
-          <label for="inputtext" class="col-sm-2 col-form-label">Temps de préparation</label>
+          <label for="preparing_time" class="col-sm-2 col-form-label">Temps de préparation(en min)</label>
           <div class="col-sm-10">
-            <input type="text" class="form-control" id="inputtext" placeholder="40 h">
+            <input name="preparing_time" type="int" class="form-control" id="preparing_time" placeholder="40 min">
           </div>
         </div>
         <div class="form-group row py-2">
-          <label for="inputtext" class="col-sm-2 col-form-label">Instructions</label>
+          <label for="instructions" class="col-sm-2 col-form-label">Instructions</label>
           <div class="col-sm-10">
-            <textarea class="form-control is-invalid" id="validationTextarea" placeholder="Ajouter le sel etc"></textarea>
+            <textarea name="instructions" class="form-control is-invalid" id="instructions" placeholder="Ajouter le sel etc"></textarea>
           </div>
         </div>
         <div class="form-group row py-2">
-          <label for="inputtext" class="col-sm-2 col-form-label">Image de la recette</label>
+          <label for="image" class="col-sm-2 col-form-label">Image</label>
           <div class="custom-file col-sm-10">
-            <input type="file" class="custom-file-input" id="customFile">
+            <input name="image" type="text" class="custom-file-input" id="image">
           </div>
+        </div>
+        <div class="form-group row py-2">
+          <label for="id_category" class="col-sm-2 col-form-label">Catégorie</label>
+          <select name="id_category" id="id_category">
+            <?php foreach ($categories as $category) { ?>
+              <option value="<?php echo $category['id']; ?>"><?php echo $category['name']; ?></option>
+            <?php } ?>
+
+          </select>
         </div>
         <button type="submit" class="btn btn-outline-success ">Créer</button>
       </form>

@@ -77,7 +77,7 @@ switch ($action) {
             if ($userId > 0) {
                 $_SESSION['userId'] = $userId;
                 echo $_SESSION["userId"];
-                header('Location: ?action=home');
+                header('Location: ?action=pageAdmin.php');
             } else {
                 $errorMsg = "Identifiant ou mot de passe incorrectes";
                 header('Location: ?action=displayLogin');
@@ -150,6 +150,7 @@ switch ($action) {
     case 'admin':
         require('models/recipe.php');
         $recipes = GetAllRecipes();
+        $categories = AllCategory();
         include "views/pageAdmin.php";
         break;
 
@@ -163,12 +164,11 @@ switch ($action) {
         
         break;    */
 
-
+        //Create recipe
     case 'createRecipe':
-        include "../models/pageAdmin.php";
+        include "models/recipe.php";
         if (isset($_SESSION['userId'])) {
-
-            CreateNewRecipe($_SESSION['userId'], $_POST['name'], $_POST['cooking_time'], $_POST['preparing_time'], $_POST['instructions'], $_POST['categoryId'], $_POST['image'], $_POST['created']);
+            CreateNewRecipe($_POST['name'], $_POST['cooking_time'], $_POST['preparing_time'], $_POST['instructions'], $_POST['image'], $_POST['id_category'],);
         }
         header('Location: ?action=admin');
         break;

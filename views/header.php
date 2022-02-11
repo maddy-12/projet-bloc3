@@ -45,10 +45,6 @@
             <li class="nav-item">
               <a class="nav-link" href="?action=admin">Espace Admin</a>
             </li>
-
-            <li class="nav-item">
-              <a class="nav-link" href="recipeCreatedUser.php">Recettes créée</a>
-            </li>
             <li class="nav-item">
               <a class="nav-link" href="?action=favourites">Favoris</a>
             </li>
@@ -69,9 +65,6 @@
           <?php
           }
           ?>
-
-
-
         </ul>
         <form class="d-flex">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
