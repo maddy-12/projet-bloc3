@@ -93,6 +93,7 @@ switch ($action) {
         if (isset($_GET['id']) && $_GET['id'] > 0) {
             include "models/recipe.php";
             $recipe =  GetOneRecipeFromId($_GET['id']);
+            $categories =  GetOneCategoryFromIdRecipe($recipe['id']);
             include "models/ingredient.php";
             $ingredients =  GetAllIngredientsFromRecipe($recipe['id']);
 

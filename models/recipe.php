@@ -89,6 +89,13 @@ function AllCategory()
   return $response->fetchAll();
 }
 
+function GetOneCategoryFromIdRecipe($id_recipe)
+{
+  global $connexion;
+  $response = $connexion->query("SELECT category.name, recipe.id, recipe.id_category FROM category INNER JOIN recipe on category.id = recipe.id_category where recipe.id = '$id_recipe'");
+  return $response->fetchAll();
+}
+
 function UpdateRecipe($id, $name, $cooking_time, $preparing_time, $instructions, $categoryId, $image)
 {
   global $connexion;

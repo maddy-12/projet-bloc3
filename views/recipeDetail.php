@@ -29,6 +29,11 @@ include('header.php');
                 ?>
 
                 <span>Créée le : <?= $recipe['created'] ?></span>
+                <span>Catégorie:
+                    <?php foreach ($categories as $category) { ?>
+                        <?= $category['name']; ?>
+                    <?php } ?>
+                </span>
 
             </div>
         </div>
