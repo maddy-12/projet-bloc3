@@ -43,18 +43,18 @@ include('header.php');
         <div class="col border-end ">
             <h4 class="text-success">Ingrédients </h4>
             <ul>
-                <?php
-                foreach ($ingredients as $ingredient) {
-                ?>
+                <!-- <?php
+                        foreach ($ingredients as $ingredient) {
+                        ?>
                     <li class="list-item">
                         <?= $ingredient['quantity']; ?>
                         <?= $ingredient['text']; ?>
                         <?= $ingredient['name']; ?>
                     </li>
                 <?php
-                }
+                        }
 
-                ?>
+                ?> -->
             </ul>
 
         </div>
