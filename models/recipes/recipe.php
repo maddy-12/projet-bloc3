@@ -65,16 +65,17 @@ function DeleteRecipe($id_recipe)
 }
 
 // Create recipe
-function CreateNewRecipe($name, $cooking_time, $preparing_time, $instructions, $categoryId, $image)
+function CreateNewRecipe($name, $cooking_time, $preparing_time, $ingredients, $instructions, $categoryId, $image)
 {
   global $connexion;
 
-  $response = $connexion->prepare("INSERT INTO recipe(name, cooking_time, preparing_time, instructions, id_category, image ) values (:name, :cooking_time, :preparing_time, :instructions, :categoryId, :image)");
+  $response = $connexion->prepare("INSERT INTO recipe(name, cooking_time, preparing_time,ingredients, instructions, id_category, image ) values (:name, :cooking_time, :preparing_time,:ingredients, :instructions, :categoryId, :image)");
   $response->execute(
     array(
       "name" => $name,
       "cooking_time" => $cooking_time,
       "preparing_time" => $preparing_time,
+      "ingredients" => $ingredients,
       "instructions" => $instructions,
       "categoryId" => intval($categoryId),
       "image" => $image,
