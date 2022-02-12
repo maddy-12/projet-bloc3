@@ -139,8 +139,6 @@ switch ($action) {
     case 'shoppingList':
         include "models/recipes/recipe.php";
         $recipe =  GetOneRecipeFromId($_GET['id']);
-        include "models/ingredient.php";
-        //$ingredients =  GetAllIngredientsFromRecipe($recipe['id']);
 
         include "views/shoppingList.php";
 
@@ -172,7 +170,7 @@ switch ($action) {
     case 'updateRecipe':
         require('models/recipes/recipe.php');
         if (isset($_POST['name'])) {
-            UpdateRecipe($_GET['id'], $_POST['name'], $_POST['cooking_time'], $_POST['preparing_time'], $_POST['instructions'], $_POST['id_category'], $_POST['image']);
+            UpdateRecipe($_GET['id'], $_POST['name'], $_POST['cooking_time'], $_POST['preparing_time'], $_POST['instructions'], $_POST['id_category'], $_POST['image'], $_POST['ingredients']);
         }
         header('Location: ?action=admin');
         break;
@@ -181,7 +179,7 @@ switch ($action) {
     case 'createRecipe':
         include "models/recipes/recipe.php";
         if (isset($_SESSION['userId'])) {
-            CreateNewRecipe($_POST['name'], $_POST['cooking_time'], $_POST['preparing_time'], $_POST['instructions'], $_POST['id_category'], $_POST['image']);
+            CreateNewRecipe($_POST['name'], $_POST['cooking_time'], $_POST['preparing_time'], $_POST['instructions'],  $_POST['ingredients'], $_POST['id_category'], $_POST['image']);
         }
         header('Location: ?action=admin');
         break;
