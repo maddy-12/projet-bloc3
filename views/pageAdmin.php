@@ -48,6 +48,17 @@ include('header.php');
     </form>
   </section>
 
+  <!-- Ajouter une categorie -->
+  <div>
+    <h3>Ajouter une categorie</h3>
+    <form method="POST" action="?action=createCategory">
+      <label for="nom" class="col-sm-2 col-form-label mr-5">Nom de la catégorie</label>
+      <input class="form-control" type="text" placeholder="Nom de la catégorie" name="name">
+      <button type=" submit" class="btn btn-outline-success ">Créer</button>
+    </form>
+  </div>
+
+
   <!-- Liste des recettes créées -->
   <section>
     <div class="row d-flex justify-content-center">

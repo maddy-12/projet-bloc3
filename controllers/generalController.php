@@ -91,11 +91,11 @@ switch ($action) {
         // display one recipe
     case 'recipeDetail':
         if (isset($_GET['id']) && $_GET['id'] > 0) {
-            include "models/recipe.php";
+            include "models/recipes/recipe.php";
             $recipe =  GetOneRecipeFromId($_GET['id']);
             $categories =  GetOneCategoryFromIdRecipe($recipe['id']);
             include "models/ingredient.php";
-            $ingredients =  GetAllIngredientsFromRecipe($recipe['id']);
+            // $ingredients =  GetAllIngredientsFromRecipe($recipe['id']);
 
             require('views/recipeDetail.php');
         }
@@ -104,7 +104,7 @@ switch ($action) {
         //Add favourite
     case 'addFavourites':
         if (isset($_SESSION['userId']) && $_GET['id'] > 0) {
-            include "models/recipe.php";
+            include "models/recipes/recipe.php";
 
             if (IsNotFavoriteRecipe($_SESSION['userId'], $_GET['id'])) {
                 $favoriteRecipe = CreateFavoriteRecipe($_GET['id'], $_SESSION['userId']);
@@ -119,7 +119,7 @@ switch ($action) {
 
     case 'favourites':
         if (isset($_SESSION['userId'])) {
-            include "models/recipe.php";
+            include "models/recipes/recipe.php";
             $recipesFavourites = GetAllFavouritesRecipes($_SESSION['userId']);
             include "views/favorites.php";
         }
@@ -128,7 +128,7 @@ switch ($action) {
 
     case 'deleteFavoriteRecipe':
         if (isset($_SESSION['userId'])) {
-            include "models/recipe.php";
+            include "models/recipes/recipe.php";
             $recipesFavourites = GetAllFavouritesRecipes($_SESSION['userId']);
             DeleteFavoriteRecipe($_GET['id'], $_SESSION['userId']);
             header('Location: ?action=favourites');
@@ -137,10 +137,10 @@ switch ($action) {
 
         //display ingredient
     case 'shoppingList':
-        include "models/recipe.php";
+        include "models/recipes/recipe.php";
         $recipe =  GetOneRecipeFromId($_GET['id']);
         include "models/ingredient.php";
-        $ingredients =  GetAllIngredientsFromRecipe($recipe['id']);
+        //$ingredients =  GetAllIngredientsFromRecipe($recipe['id']);
 
         include "views/shoppingList.php";
 
@@ -148,27 +148,29 @@ switch ($action) {
 
         // Space Admin
     case 'admin':
-        require('models/recipe.php');
+        require('models/recipes/recipe.php');
         $recipes = GetAllRecipes();
         $categories = AllCategory();
         include "views/pageAdmin.php";
         break;
 
     case 'adminUpdateRecipe':
-        require('models/recipe.php');
+        require('models/recipes/recipe.php');
         $categories = AllCategory();
         $recipe = GetOneRecipeFromId($_GET['id']);
         include "views/pageAdminUpdate.php";
         break;
 
+        //Delete recipe
     case 'deleteRecipe':
-        require('models/recipe.php');
+        require('models/recipes/recipe.php');
         DeleteRecipe($_GET['id']);
         header('Location: ?action=admin');
         break;
 
+        //update recipe
     case 'updateRecipe':
-        require('models/recipe.php');
+        require('models/recipes/recipe.php');
         if (isset($_POST['name'])) {
             UpdateRecipe($_GET['id'], $_POST['name'], $_POST['cooking_time'], $_POST['preparing_time'], $_POST['instructions'], $_POST['id_category'], $_POST['image']);
         }
@@ -177,16 +179,41 @@ switch ($action) {
 
         //Create recipe
     case 'createRecipe':
-        include "models/recipe.php";
+        include "models/recipes/recipe.php";
         if (isset($_SESSION['userId'])) {
             CreateNewRecipe($_POST['name'], $_POST['cooking_time'], $_POST['preparing_time'], $_POST['instructions'], $_POST['id_category'], $_POST['image']);
         }
         header('Location: ?action=admin');
         break;
 
+        //Create category
+    case 'createCategory':
+        include "models/categories/category.php";
+        if (isset($_SESSION['userId'])) {
+            CreateCategory($_POST['name']);
+        }
+        header('Location: ?action=admin');
+        break;
+
+        //update category
+    case 'updateCategory':
+        require('models/categories/category.php');
+        if (isset($_POST['name'])) {
+            UpdateRecipe($_GET['id'], $_POST['name']);
+        }
+        header('Location: ?action=admin');
+        break;
+
+        //Delete category
+    case 'deleteCategory':
+        require('models/categories/category.php');
+        DeleteCategory($_GET['id']);
+        header('Location: ?action=admin');
+        break;
+
     case 'home':
     default:
-        require('models/recipe.php');
+        require('models/recipes/recipe.php');
         $recipes = GetAllRecipes();
         require('views/home.php');
 }
