@@ -41,8 +41,7 @@ function GetAllFavouritesRecipes($id_user)
 function DeleteFavoriteRecipe($id_recipe, $id_user)
 {
   global $connexion;
-  $response = $connexion->query("DELETE FROM favourites where favourites.id_recipe = '$id_recipe' AND favourites.id_user = '$id_user'");
-  return $response->fetchAll();
+  $response = $connexion->query("DELETE FROM favourites where favourites.id_recipe = $id_recipe AND favourites.id_user = $id_user");
 }
 
 function IsNotFavoriteRecipe($id_user, $id_recipe)
@@ -97,11 +96,11 @@ function GetOneCategoryFromIdRecipe($id_recipe)
   return $response->fetchAll();
 }
 
-function UpdateRecipe($id, $name, $cooking_time, $preparing_time, $instructions, $categoryId, $image)
+function UpdateRecipe($id, $name, $cooking_time, $preparing_time, $instructions, $categoryId, $image, $ingredients)
 {
   global $connexion;
 
-  $response = $connexion->prepare("Update recipe set name = :name, cooking_time = :cooking_time, preparing_time = :preparing_time, instructions = :instructions, id_category = :categoryId, image = :image where id = :id");
+  $response = $connexion->prepare("Update recipe set name = :name, cooking_time = :cooking_time, preparing_time = :preparing_time, instructions = :instructions, id_category = :categoryId, image = :image, ingredients = :ingredients where id = :id");
   $response->execute(
     array(
       "id" => $id,
@@ -109,6 +108,7 @@ function UpdateRecipe($id, $name, $cooking_time, $preparing_time, $instructions,
       "cooking_time" => $cooking_time,
       "preparing_time" => $preparing_time,
       "instructions" => $instructions,
+      "ingredients" => $ingredients,
       "categoryId" => intval($categoryId),
       "image" => $image
     )

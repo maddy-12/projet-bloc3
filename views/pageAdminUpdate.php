@@ -9,7 +9,7 @@ include('header.php');
       <div class="form-group row py-2">
         <label for="name" class="col-sm-2 col-form-label">Titre de la recette</label>
         <div class="col-sm-10">
-          <input name="name" type="text" class="form-control" id="name" value="<?= $recipe['name'] ?>" placeholder=" Boeuf bourgignon">
+          <input name="name" type="text" class="form-control" id="name" value="<?= utf8_encode($recipe['name']) ?>" placeholder=" Boeuf bourgignon">
         </div>
       </div>
       <div class="form-group row py-2">
@@ -28,6 +28,12 @@ include('header.php');
         <label for="instructions" class="col-sm-2 col-form-label">Instructions</label>
         <div class="col-sm-10">
           <textarea name="instructions" class="form-control" id="instructions"><?= utf8_encode($recipe['instructions']) ?></textarea>
+        </div>
+      </div>
+      <div class="form-group row py-2">
+        <label for="ingredients" class="col-sm-2 col-form-label">Ingrédients</label>
+        <div class="col-sm-10">
+          <textarea name="ingredients" class="form-control" id="ingredients"><?= utf8_encode($recipe['ingredients']) ?></textarea>
         </div>
       </div>
       <div class="form-group row py-2">
