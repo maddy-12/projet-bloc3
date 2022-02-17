@@ -5,7 +5,7 @@ header("Access-Control-Allow-Headers: access");
 header("Access-Control-Allow-Methods: GET");
 header("Access-Control-Allow-Credentials: true");
 header("Content-Type: application/json; charset=UTF-8");
-include("../api-rest/config/database_connect.php");
+include("../../api-rest/config/database_connect.php");
 
 //Include le model
 function GetOneRecipeFromId($id_recipe)

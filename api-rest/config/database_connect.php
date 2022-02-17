@@ -4,7 +4,7 @@
 $host = "localhost";
 $db_name = "biocook";
 $username = "root";
-$password = "";
+$password = "IVY18021994kimi";
 $connexion;
 
 $connexion = new PDO("mysql:host=" . $host . ";dbname=" . $db_name, $username, $password);
