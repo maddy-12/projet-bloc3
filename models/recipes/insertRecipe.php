@@ -8,7 +8,7 @@ header("Content-Type: application/json; charset=UTF-8");
 include("../../api-rest/config/database_connect.php");
 
 //Include le model 
-// Create recipe
+// Create one recipe
 function CreateNewRecipe($name, $cooking_time, $preparing_time, $ingredients, $instructions, $categoryId, $image)
 {
     global $connexion;
