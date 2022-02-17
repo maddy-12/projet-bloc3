@@ -26,6 +26,12 @@ include('header.php');
         </div>
       </div>
       <div class="form-group row py-2">
+        <label for="ingredients" class="col-sm-2 col-form-label">ingredients</label>
+        <div class="col-sm-10">
+          <textarea name="ingredients" class="form-control" id="ingredients" placeholder="Ajouter le sel etc"></textarea>
+        </div>
+      </div>
+      <div class="form-group row py-2">
         <label for="instructions" class="col-sm-2 col-form-label">Instructions</label>
         <div class="col-sm-10">
           <textarea name="instructions" class="form-control" id="instructions" placeholder="Ajouter le sel etc"></textarea>

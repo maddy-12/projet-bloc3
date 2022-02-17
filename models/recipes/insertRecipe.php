@@ -9,11 +9,11 @@ include("../../api-rest/config/database_connect.php");
 
 //Include le model 
 // Create recipe
-function CreateNewRecipe($name, $cooking_time, $preparing_time, $instructions, $categoryId, $image)
+function CreateNewRecipe($name, $cooking_time, $preparing_time, $ingredients, $instructions, $categoryId, $image)
 {
     global $connexion;
 
-    $response = $connexion->prepare("INSERT INTO recipe(name, cooking_time, preparing_time, instructions, id_category, image ) values (:name, :cooking_time, :preparing_time, :instructions, :categoryId, :image)");
+    $response = $connexion->prepare("INSERT INTO recipe(name, cooking_time, preparing_time,ingredients, instructions, id_category, image ) values (:name, :cooking_time, :preparing_time,:ingredients, :instructions, :categoryId, :image)");
 
     var_dump($response);
     $response->execute(
@@ -21,6 +21,7 @@ function CreateNewRecipe($name, $cooking_time, $preparing_time, $instructions, $
             "name" => $name,
             "cooking_time" => $cooking_time,
             "preparing_time" => $preparing_time,
+            "ingredients" => $ingredients,
             "instructions" => $instructions,
             "categoryId" => $categoryId,
             "image" => $image,
@@ -31,5 +32,5 @@ function CreateNewRecipe($name, $cooking_time, $preparing_time, $instructions, $
 $data = json_decode(file_get_contents("php://input"));
 //On passe les donnée à la fonction pour créer la recette
 //var_dump($data);
-$res = CreateNewRecipe($data->nom, $data->cooking_time, $data->preparing_time, $data->instructions, $data->categoryId, $data->image);
+$res = CreateNewRecipe($data->nom, $data->cooking_time, $data->preparing_time, $data->ingredients, $data->instructions, $data->categoryId, $data->image);
 echo json_encode($res);
