@@ -24,7 +24,7 @@ function CreateNewRecipe($name, $cooking_time, $preparing_time, $ingredients, $i
             "ingredients" => $ingredients,
             "instructions" => $instructions,
             "categoryId" => $categoryId,
-            "image" => $image,
+            "image" => $image
         )
     );
 }
@@ -32,5 +32,5 @@ function CreateNewRecipe($name, $cooking_time, $preparing_time, $ingredients, $i
 $data = json_decode(file_get_contents("php://input"));
 //On passe les donnée à la fonction pour créer la recette
 //var_dump($data);
-$res = CreateNewRecipe($data->nom, $data->cooking_time, $data->preparing_time, $data->ingredients, $data->instructions, $data->categoryId, $data->image);
+$res = CreateNewRecipe($data->name, $data->cooking_time, $data->preparing_time, $data->ingredients, $data->instructions, $data->categoryId, $data->image);
 echo json_encode($res);
