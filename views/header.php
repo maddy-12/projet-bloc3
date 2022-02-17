@@ -37,24 +37,33 @@
           <li class="nav-item">
             <a class="nav-link active" href="?action=home">Home</a>
           </li>
-          <!-- Si connecté on affiche -->
-          <?php
 
-          if (isset($_SESSION['userId'])) {
-          ?>
-            <li class="nav-item">
-              <a class="nav-link" href="?action=admin">Espace Admin</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="?action=favourites">Favoris</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="?action=logout" role="button">Logout</a>
-            </li>
           <?php
+          //Si le user est connecté
+          if (isset($_SESSION['userId'])) {
+            // Si le user connecté est admin
+            if ($_SESSION['permission'] == 2) {
+          ?>
+              <li class="nav-item">
+                <a class="nav-link" href="?action=admin">Espace Admin</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="?action=logout" role="button">Se déconnecter</a>
+              </li>
+            <?php
+              //Si le user est un membre inscrit 
+            } else if ($_SESSION['permission'] == 1) { ?>
+              <li class="nav-item">
+                <a class="nav-link" href="?action=logout" role="button">Se déconnecter</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="?action=favourites">Favoris</a>
+              </li>
+            <?php
+            }
             //Si non connecté 
           } else {
-          ?>
+            ?>
             <li class="nav-item">
               <a class="nav-link" href="index.php?action=displayLogin">Se connecter</a>
             </li>

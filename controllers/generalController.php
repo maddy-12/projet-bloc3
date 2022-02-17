@@ -74,9 +74,10 @@ switch ($action) {
         include "models/user.php";
         if (isset($_POST['username']) && isset($_POST['password'])) {
             $userId = GetUserIdFromUserAndPassword($_POST['username'], $_POST['password']);
+            $permission = GetUserPermission($userId);
             if ($userId > 0) {
                 $_SESSION['userId'] = $userId;
-                echo $_SESSION["userId"];
+                $_SESSION['permission'] = $permission;
                 header('Location: ?action=pageAdmin.php');
             } else {
                 $errorMsg = "Identifiant ou mot de passe incorrectes";

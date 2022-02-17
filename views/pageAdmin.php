@@ -1,5 +1,9 @@
 <?php
 include('header.php');
+//Si l'utilisateur n'est pas un admin mais réussi à acceder à cette page, il sera rediriger vers la page d'accueil
+// if (($_SESSION['permission']) != 2) {
+//   header('Location: ?action=home');
+// }
 ?>
 
 <div class="container mg-top">
@@ -130,7 +134,9 @@ include('header.php');
         $recipes->closeCursor();
       } else {
         ?>
-        <p>Vous n'avez pas de recettes</p>
+        <div class="alert alert-light" role="alert">
+          <p>Vous n'avez pas encore créer une recette</p>
+        </div>
       <?php
       }
 
