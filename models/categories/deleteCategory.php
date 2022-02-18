@@ -17,6 +17,6 @@ function DeleteCategory($id_category)
 
 //ransformer les données Json qu'on récup en données php pour pouvoir les manipuler
 $data = json_decode(file_get_contents("php://input"));
-$res = DeleteCategory($data->id_category);
+$res = DeleteCategory($data->id);
 //retourner un json
 echo json_encode($res);
