@@ -30,12 +30,6 @@ include('header.php');
         </div>
       </div>
       <div class="form-group row py-2">
-        <label for="ingredients" class="col-sm-2 col-form-label">ingredients</label>
-        <div class="col-sm-10">
-          <textarea name="ingredients" class="form-control" id="ingredients" placeholder="Ajouter le sel etc"></textarea>
-        </div>
-      </div>
-      <div class="form-group row py-2">
         <label for="instructions" class="col-sm-2 col-form-label">Instructions</label>
         <div class="col-sm-10">
           <textarea name="instructions" class="form-control" id="instructions" placeholder="Ajouter le sel etc"></textarea>
@@ -117,7 +111,7 @@ include('header.php');
         while ($recipe = $recipes->fetch()) {
 
       ?>
-          <div class="col-3 mx-4">
+          <div class="col-3 mx-4 my-4">
             <!-- Cartes de recettes -->
             <div class="card" style="width: 18rem;">
               <img src="<?= $recipe['image'] ?>" class="card-img-top" alt="...">
