@@ -16,17 +16,31 @@ include('header.php');
                 <?php
 
                 if (isset($_SESSION['userId'])) {
+                    // Si le user connecté est admin
+                    if ($_SESSION['permission'] == 1) {
                 ?>
 
-                    <a href="index.php?action=addFavourites&amp;id=<?= $recipe['id'] ?>" class="btn btn-card">Ajouter aux favoris </a>
+                        <a href="index.php?action=addFavourites&amp;id=<?= $recipe['id'] ?>" class="btn btn-card">Ajouter aux favoris </a>
+
                 <?php
-                }
-                // var_dump($message);
-                if (isset($message)) {
+                        // var_dump($message);
+                        if (isset($message)) {
 
-                    echo "<div class='alert alert-warning' role='alert'>$message</div>";
-                }
+                            echo "<div class='alert alert-warning' role='alert'>$message</div>";
+                        }
+                    } else if ($_SESSION['permission'] == 2) {
+                        // var_dump($message);
+                        if (isset($message)) {
 
+                            echo "<div class='alert alert-warning' role='alert'>$message</div>";
+                        }
+                    }
+                    // var_dump($message);
+                    if (isset($message)) {
+
+                        echo "<div class='alert alert-warning' role='alert'>$message</div>";
+                    }
+                }
                 ?>
 
                 <span>Créée le : <?= $recipe['created'] ?></span>
